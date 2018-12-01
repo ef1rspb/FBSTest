@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		302C6EE121B2A12200DB89A1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EE021B2A12200DB89A1 /* Router.swift */; };
+		302C6EE321B2A13500DB89A1 /* FBSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EE221B2A13500DB89A1 /* FBSRouter.swift */; };
+		302C6EE521B2A18900DB89A1 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EE421B2A18900DB89A1 /* Presentable.swift */; };
+		302C6EE721B2A1B900DB89A1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EE621B2A1B900DB89A1 /* Coordinator.swift */; };
+		302C6EE921B2A1ED00DB89A1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EE821B2A1ED00DB89A1 /* BaseView.swift */; };
+		302C6EEB21B2A21B00DB89A1 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EEA21B2A21B00DB89A1 /* BaseCoordinator.swift */; };
 		303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E826F21B2873300A8A7FA /* AppDelegate.swift */; };
 		303E827721B2873400A8A7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303E827621B2873400A8A7FA /* Assets.xcassets */; };
 		303E827A21B2873400A8A7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 303E827821B2873400A8A7FA /* LaunchScreen.storyboard */; };
@@ -35,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		302C6EE021B2A12200DB89A1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		302C6EE221B2A13500DB89A1 /* FBSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSRouter.swift; sourceTree = "<group>"; };
+		302C6EE421B2A18900DB89A1 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		302C6EE621B2A1B900DB89A1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		302C6EE821B2A1ED00DB89A1 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		302C6EEA21B2A21B00DB89A1 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		303E826C21B2873300A8A7FA /* FBSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		303E826F21B2873300A8A7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		303E827621B2873400A8A7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,6 +134,7 @@
 		302C6ED821B293E100DB89A1 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				302C6EEA21B2A21B00DB89A1 /* BaseCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -156,6 +169,32 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		302C6EDD21B2A08D00DB89A1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				302C6EE421B2A18900DB89A1 /* Presentable.swift */,
+				302C6EE621B2A1B900DB89A1 /* Coordinator.swift */,
+				302C6EE821B2A1ED00DB89A1 /* BaseView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		302C6EDE21B2A0A500DB89A1 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				302C6EE021B2A12200DB89A1 /* Router.swift */,
+				302C6EE221B2A13500DB89A1 /* FBSRouter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		302C6EDF21B2A0BC00DB89A1 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
 		303E826321B2873200A8A7FA = {
 			isa = PBXGroup;
 			children = (
@@ -186,9 +225,12 @@
 				302C6ED721B293D200DB89A1 /* Controllers */,
 				302C6ED821B293E100DB89A1 /* Coordinators */,
 				302C6EDB21B2994C00DB89A1 /* Extensions */,
+				302C6EDF21B2A0BC00DB89A1 /* Flows */,
 				302C6ED621B293C300DB89A1 /* Models */,
 				302C6EDC21B2996200DB89A1 /* Networking */,
 				302C6ED921B2991300DB89A1 /* Persistence */,
+				302C6EDE21B2A0A500DB89A1 /* Presenters */,
+				302C6EDD21B2A08D00DB89A1 /* Protocols */,
 				302C6EDA21B2992500DB89A1 /* Resources */,
 				302C6ED521B2939400DB89A1 /* Services */,
 			);
@@ -569,6 +611,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302C6EE121B2A12200DB89A1 /* Router.swift in Sources */,
+				302C6EE521B2A18900DB89A1 /* Presentable.swift in Sources */,
+				302C6EE721B2A1B900DB89A1 /* Coordinator.swift in Sources */,
+				302C6EE921B2A1ED00DB89A1 /* BaseView.swift in Sources */,
+				302C6EEB21B2A21B00DB89A1 /* BaseCoordinator.swift in Sources */,
+				302C6EE321B2A13500DB89A1 /* FBSRouter.swift in Sources */,
 				303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
