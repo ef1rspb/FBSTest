@@ -21,6 +21,8 @@
 		302C6EFE21B2AE3B00DB89A1 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EFD21B2AE3B00DB89A1 /* CoordinatorFactory.swift */; };
 		302C6F0421B2B23A00DB89A1 /* FBSCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0321B2B23A00DB89A1 /* FBSCoordinatorFactory.swift */; };
 		302C6F0621B2B27B00DB89A1 /* FBSModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0521B2B27B00DB89A1 /* FBSModuleFactory.swift */; };
+		302C6F0921B2B55400DB89A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0821B2B55400DB89A1 /* LoginViewController.swift */; };
+		302C6F0B21B2B56E00DB89A1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0A21B2B56E00DB89A1 /* LoginViewModel.swift */; };
 		303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E826F21B2873300A8A7FA /* AppDelegate.swift */; };
 		303E827721B2873400A8A7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303E827621B2873400A8A7FA /* Assets.xcassets */; };
 		303E827A21B2873400A8A7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 303E827821B2873400A8A7FA /* LaunchScreen.storyboard */; };
@@ -63,6 +65,8 @@
 		302C6EFD21B2AE3B00DB89A1 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		302C6F0321B2B23A00DB89A1 /* FBSCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSCoordinatorFactory.swift; sourceTree = "<group>"; };
 		302C6F0521B2B27B00DB89A1 /* FBSModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSModuleFactory.swift; sourceTree = "<group>"; };
+		302C6F0821B2B55400DB89A1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		302C6F0A21B2B56E00DB89A1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		303E826C21B2873300A8A7FA /* FBSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		303E826F21B2873300A8A7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		303E827621B2873400A8A7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		302C6ED721B293D200DB89A1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				302C6F0721B2B4BF00DB89A1 /* Login */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -250,6 +255,15 @@
 				302C6F0521B2B27B00DB89A1 /* FBSModuleFactory.swift */,
 			);
 			path = Imp;
+			sourceTree = "<group>";
+		};
+		302C6F0721B2B4BF00DB89A1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				302C6F0821B2B55400DB89A1 /* LoginViewController.swift */,
+				302C6F0A21B2B56E00DB89A1 /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		303E826321B2873200A8A7FA = {
@@ -677,8 +691,10 @@
 				302C6EF221B2A48F00DB89A1 /* AuthCoordinatorOutput.swift in Sources */,
 				302C6F0621B2B27B00DB89A1 /* FBSModuleFactory.swift in Sources */,
 				302C6EEB21B2A21B00DB89A1 /* BaseCoordinator.swift in Sources */,
+				302C6F0B21B2B56E00DB89A1 /* LoginViewModel.swift in Sources */,
 				302C6EE321B2A13500DB89A1 /* FBSRouter.swift in Sources */,
 				302C6EEF21B2A3F300DB89A1 /* LoginView.swift in Sources */,
+				302C6F0921B2B55400DB89A1 /* LoginViewController.swift in Sources */,
 				303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */,
 				302C6EFC21B2ADD300DB89A1 /* ApplicationCoordinator.swift in Sources */,
 				302C6EFE21B2AE3B00DB89A1 /* CoordinatorFactory.swift in Sources */,

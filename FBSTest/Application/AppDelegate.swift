@@ -12,17 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+
     var rootController: UINavigationController {
-        return self.window!.rootViewController as! UINavigationController
+        return (self.window!.rootViewController as? UINavigationController)!
     }
 
     private lazy var applicationCoordinator: Coordinator = self.makeCoordinator()
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let root = UINavigationController()
-        window!.rootViewController = root
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.rootViewController = UINavigationController()
         window!.makeKeyAndVisible()
+        applicationCoordinator.start()
         return true
     }
 

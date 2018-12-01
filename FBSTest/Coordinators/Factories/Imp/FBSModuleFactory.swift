@@ -3,7 +3,7 @@ final class FBSModuleFactory {}
 extension FBSModuleFactory: AuthModuleFactory {
 
     func makeLoginOutput() -> LoginView {
-        return LoginController()
+        let viewModel = LoginViewModel()
+        return LoginViewController(viewModel: viewModel)
     }
 }
-
