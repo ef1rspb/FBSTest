@@ -17,6 +17,10 @@
 		302C6EF221B2A48F00DB89A1 /* AuthCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EF121B2A48F00DB89A1 /* AuthCoordinatorOutput.swift */; };
 		302C6EF421B2A4AE00DB89A1 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EF321B2A4AE00DB89A1 /* AuthCoordinator.swift */; };
 		302C6EF921B2A6E700DB89A1 /* AuthModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EF821B2A6E700DB89A1 /* AuthModuleFactory.swift */; };
+		302C6EFC21B2ADD300DB89A1 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EFB21B2ADD300DB89A1 /* ApplicationCoordinator.swift */; };
+		302C6EFE21B2AE3B00DB89A1 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EFD21B2AE3B00DB89A1 /* CoordinatorFactory.swift */; };
+		302C6F0421B2B23A00DB89A1 /* FBSCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0321B2B23A00DB89A1 /* FBSCoordinatorFactory.swift */; };
+		302C6F0621B2B27B00DB89A1 /* FBSModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0521B2B27B00DB89A1 /* FBSModuleFactory.swift */; };
 		303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E826F21B2873300A8A7FA /* AppDelegate.swift */; };
 		303E827721B2873400A8A7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303E827621B2873400A8A7FA /* Assets.xcassets */; };
 		303E827A21B2873400A8A7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 303E827821B2873400A8A7FA /* LaunchScreen.storyboard */; };
@@ -55,6 +59,10 @@
 		302C6EF121B2A48F00DB89A1 /* AuthCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorOutput.swift; sourceTree = "<group>"; };
 		302C6EF321B2A4AE00DB89A1 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		302C6EF821B2A6E700DB89A1 /* AuthModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleFactory.swift; sourceTree = "<group>"; };
+		302C6EFB21B2ADD300DB89A1 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		302C6EFD21B2AE3B00DB89A1 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		302C6F0321B2B23A00DB89A1 /* FBSCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSCoordinatorFactory.swift; sourceTree = "<group>"; };
+		302C6F0521B2B27B00DB89A1 /* FBSModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSModuleFactory.swift; sourceTree = "<group>"; };
 		303E826C21B2873300A8A7FA /* FBSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		303E826F21B2873300A8A7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		303E827621B2873400A8A7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 		302C6EDA21B2992500DB89A1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				303E827B21B2873400A8A7FA /* Info.plist */,
 				303E827621B2873400A8A7FA /* Assets.xcassets */,
 				303E827821B2873400A8A7FA /* LaunchScreen.storyboard */,
 			);
@@ -218,9 +227,29 @@
 		302C6EF721B2A6D200DB89A1 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				302C6F0221B2B22000DB89A1 /* Imp */,
 				302C6EF821B2A6E700DB89A1 /* AuthModuleFactory.swift */,
+				302C6EFD21B2AE3B00DB89A1 /* CoordinatorFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		302C6EFA21B2ADAB00DB89A1 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				303E826F21B2873300A8A7FA /* AppDelegate.swift */,
+				302C6EFB21B2ADD300DB89A1 /* ApplicationCoordinator.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		302C6F0221B2B22000DB89A1 /* Imp */ = {
+			isa = PBXGroup;
+			children = (
+				302C6F0321B2B23A00DB89A1 /* FBSCoordinatorFactory.swift */,
+				302C6F0521B2B27B00DB89A1 /* FBSModuleFactory.swift */,
+			);
+			path = Imp;
 			sourceTree = "<group>";
 		};
 		303E826321B2873200A8A7FA = {
@@ -248,8 +277,7 @@
 		303E826E21B2873300A8A7FA /* FBSTest */ = {
 			isa = PBXGroup;
 			children = (
-				303E826F21B2873300A8A7FA /* AppDelegate.swift */,
-				303E827B21B2873400A8A7FA /* Info.plist */,
+				302C6EFA21B2ADAB00DB89A1 /* Application */,
 				302C6ED721B293D200DB89A1 /* Controllers */,
 				302C6ED821B293E100DB89A1 /* Coordinators */,
 				302C6EDB21B2994C00DB89A1 /* Extensions */,
@@ -644,12 +672,16 @@
 				302C6EF921B2A6E700DB89A1 /* AuthModuleFactory.swift in Sources */,
 				302C6EE521B2A18900DB89A1 /* Presentable.swift in Sources */,
 				302C6EE721B2A1B900DB89A1 /* Coordinator.swift in Sources */,
+				302C6F0421B2B23A00DB89A1 /* FBSCoordinatorFactory.swift in Sources */,
 				302C6EE921B2A1ED00DB89A1 /* BaseView.swift in Sources */,
 				302C6EF221B2A48F00DB89A1 /* AuthCoordinatorOutput.swift in Sources */,
+				302C6F0621B2B27B00DB89A1 /* FBSModuleFactory.swift in Sources */,
 				302C6EEB21B2A21B00DB89A1 /* BaseCoordinator.swift in Sources */,
 				302C6EE321B2A13500DB89A1 /* FBSRouter.swift in Sources */,
 				302C6EEF21B2A3F300DB89A1 /* LoginView.swift in Sources */,
 				303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */,
+				302C6EFC21B2ADD300DB89A1 /* ApplicationCoordinator.swift in Sources */,
+				302C6EFE21B2AE3B00DB89A1 /* CoordinatorFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,7 +851,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A8T3U2DXZX;
-				INFOPLIST_FILE = FBSTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FBSTest/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -838,7 +870,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A8T3U2DXZX;
-				INFOPLIST_FILE = FBSTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FBSTest/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
