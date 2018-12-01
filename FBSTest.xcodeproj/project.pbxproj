@@ -13,6 +13,10 @@
 		302C6EE721B2A1B900DB89A1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EE621B2A1B900DB89A1 /* Coordinator.swift */; };
 		302C6EE921B2A1ED00DB89A1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EE821B2A1ED00DB89A1 /* BaseView.swift */; };
 		302C6EEB21B2A21B00DB89A1 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EEA21B2A21B00DB89A1 /* BaseCoordinator.swift */; };
+		302C6EEF21B2A3F300DB89A1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EEE21B2A3F300DB89A1 /* LoginView.swift */; };
+		302C6EF221B2A48F00DB89A1 /* AuthCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EF121B2A48F00DB89A1 /* AuthCoordinatorOutput.swift */; };
+		302C6EF421B2A4AE00DB89A1 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EF321B2A4AE00DB89A1 /* AuthCoordinator.swift */; };
+		302C6EF921B2A6E700DB89A1 /* AuthModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6EF821B2A6E700DB89A1 /* AuthModuleFactory.swift */; };
 		303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E826F21B2873300A8A7FA /* AppDelegate.swift */; };
 		303E827721B2873400A8A7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303E827621B2873400A8A7FA /* Assets.xcassets */; };
 		303E827A21B2873400A8A7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 303E827821B2873400A8A7FA /* LaunchScreen.storyboard */; };
@@ -47,6 +51,10 @@
 		302C6EE621B2A1B900DB89A1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		302C6EE821B2A1ED00DB89A1 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		302C6EEA21B2A21B00DB89A1 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		302C6EEE21B2A3F300DB89A1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		302C6EF121B2A48F00DB89A1 /* AuthCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorOutput.swift; sourceTree = "<group>"; };
+		302C6EF321B2A4AE00DB89A1 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		302C6EF821B2A6E700DB89A1 /* AuthModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModuleFactory.swift; sourceTree = "<group>"; };
 		303E826C21B2873300A8A7FA /* FBSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		303E826F21B2873300A8A7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		303E827621B2873400A8A7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +142,7 @@
 		302C6ED821B293E100DB89A1 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				302C6EF721B2A6D200DB89A1 /* Factories */,
 				302C6EEA21B2A21B00DB89A1 /* BaseCoordinator.swift */,
 			);
 			path = Coordinators;
@@ -191,8 +200,27 @@
 		302C6EDF21B2A0BC00DB89A1 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				302C6EED21B2A39200DB89A1 /* Login flow */,
 			);
 			path = Flows;
+			sourceTree = "<group>";
+		};
+		302C6EED21B2A39200DB89A1 /* Login flow */ = {
+			isa = PBXGroup;
+			children = (
+				302C6EEE21B2A3F300DB89A1 /* LoginView.swift */,
+				302C6EF121B2A48F00DB89A1 /* AuthCoordinatorOutput.swift */,
+				302C6EF321B2A4AE00DB89A1 /* AuthCoordinator.swift */,
+			);
+			path = "Login flow";
+			sourceTree = "<group>";
+		};
+		302C6EF721B2A6D200DB89A1 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				302C6EF821B2A6E700DB89A1 /* AuthModuleFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		303E826321B2873200A8A7FA = {
@@ -611,12 +639,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302C6EF421B2A4AE00DB89A1 /* AuthCoordinator.swift in Sources */,
 				302C6EE121B2A12200DB89A1 /* Router.swift in Sources */,
+				302C6EF921B2A6E700DB89A1 /* AuthModuleFactory.swift in Sources */,
 				302C6EE521B2A18900DB89A1 /* Presentable.swift in Sources */,
 				302C6EE721B2A1B900DB89A1 /* Coordinator.swift in Sources */,
 				302C6EE921B2A1ED00DB89A1 /* BaseView.swift in Sources */,
+				302C6EF221B2A48F00DB89A1 /* AuthCoordinatorOutput.swift in Sources */,
 				302C6EEB21B2A21B00DB89A1 /* BaseCoordinator.swift in Sources */,
 				302C6EE321B2A13500DB89A1 /* FBSRouter.swift in Sources */,
+				302C6EEF21B2A3F300DB89A1 /* LoginView.swift in Sources */,
 				303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
