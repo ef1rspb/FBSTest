@@ -43,6 +43,7 @@
 		30628FB421B4256E00999084 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FB321B4256E00999084 /* UserDetailsViewController.swift */; };
 		30628FB621B42A8000999084 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FB521B42A8000999084 /* UIImage+Extensions.swift */; };
 		30628FB921B4469C00999084 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FB821B4469C00999084 /* UserDetailsView.swift */; };
+		30862CF221B463970083B3CE /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30862CF121B463970083B3CE /* User+Extensions.swift */; };
 		3538003F6124C1EC9FCD463B /* Pods_FBSTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48547EE9AF4627C3995EA6FE /* Pods_FBSTestUITests.framework */; };
 		601F71B671B235CC5C2D6B41 /* Pods_FBSTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7088E108E4014379F58CB45D /* Pods_FBSTestTests.framework */; };
 		F6EA2F77B67C452519F76578 /* Pods_FBSTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A627E8CDC6EF3BFBBA6C96 /* Pods_FBSTest.framework */; };
@@ -108,6 +109,7 @@
 		30628FB321B4256E00999084 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		30628FB521B42A8000999084 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		30628FB821B4469C00999084 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
+		30862CF121B463970083B3CE /* User+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Extensions.swift"; sourceTree = "<group>"; };
 		48547EE9AF4627C3995EA6FE /* Pods_FBSTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBSTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52549AB7DBEA579FE168E437 /* Pods-FBSTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBSTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBSTest/Pods-FBSTest.debug.xcconfig"; sourceTree = "<group>"; };
 		604E47490FC0F19F8EE83D81 /* Pods-FBSTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBSTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-FBSTest/Pods-FBSTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				30628FB521B42A8000999084 /* UIImage+Extensions.swift */,
+				30862CF121B463970083B3CE /* User+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				30628FA121B3E3ED00999084 /* UserListProvider.swift in Sources */,
 				30628F9D21B3DFD700999084 /* UserListViewController.swift in Sources */,
 				303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */,
+				30862CF221B463970083B3CE /* User+Extensions.swift in Sources */,
 				30628FB421B4256E00999084 /* UserDetailsViewController.swift in Sources */,
 				302C6EFC21B2ADD300DB89A1 /* ApplicationCoordinator.swift in Sources */,
 				30628FB221B422E700999084 /* UserDetailsViewModel.swift in Sources */,

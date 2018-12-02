@@ -16,13 +16,17 @@ final class UserListViewModel {
     private let userListRelay = BehaviorRelay<[UserListCellViewModel]>(value: [])
     private let disposeBag = DisposeBag()
 
-    init(userListProvider: UserListProvider) {
+    private let userService: UserService
+
+    init(userListProvider: UserListProvider, userService: UserService) {
         userListProvider
             .getUsers()
             .map {
                 $0.map { UserListCellViewModel(user: $0) } }
             .bind(to: userListRelay)
             .disposed(by: disposeBag)
+
+        self.userService = userService
     }
 }
 
@@ -30,5 +34,9 @@ extension UserListViewModel {
 
     var userListObservable: Observable<[UserListCellViewModel]> {
         return userListRelay.asObservable()
+    }
+
+    var userObservable: Observable<User> {
+        return userService.obtainUser()
     }
 }

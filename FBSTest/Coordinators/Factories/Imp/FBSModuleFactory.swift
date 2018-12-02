@@ -19,7 +19,7 @@ extension FBSModuleFactory: UserListModuleFactory {
 
     func makeUsersOutput() -> UserListView {
         let provider = FBSUserService()
-        let viewModel = UserListViewModel(userListProvider: provider)
+        let viewModel = UserListViewModel(userListProvider: provider, userService: provider)
         let viewController = UserListViewController(viewModel: viewModel)
         return viewController
     }
