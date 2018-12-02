@@ -15,7 +15,7 @@ protocol UserService: class {
 final class FBSUserService: UserService {
 
     func obtainUser() -> Observable<User> {
-        let user = User(nickname: "Sasha", avatarUrl: nil)
+        let user = User(nickname: "Sasha", avatarUrl: nil, avatarImageData: nil)
         return .just(user)
     }
 }
@@ -23,8 +23,8 @@ final class FBSUserService: UserService {
 extension FBSUserService: UserListProvider {
 
     func getUsers() -> Observable<[User]> {
-        let user1 = User(nickname: "user1", avatarUrl: nil)
-        let user2 = User(nickname: "user2", avatarUrl: nil)
+        let user1 = User(nickname: "user1", avatarUrl: nil, avatarImageData: nil)
+        let user2 = User(nickname: "user2", avatarUrl: nil, avatarImageData: nil)
         return .just([user1, user2])
     }
 

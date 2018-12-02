@@ -63,7 +63,7 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
                 self?.onLogout?()
             })
             .disposed(by: disposeBag)
-        
+
         navigationItem.rightBarButtonItem = logoutButton
     }
 
