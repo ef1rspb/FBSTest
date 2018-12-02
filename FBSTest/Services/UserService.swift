@@ -19,3 +19,16 @@ final class FBSUserService: UserService {
         return .just(user)
     }
 }
+
+extension FBSUserService: UserListProvider {
+
+    func getUsers() -> Observable<[User]> {
+        let user1 = User(nickname: "user1", avatarUrl: nil)
+        let user2 = User(nickname: "user2", avatarUrl: nil)
+        return .just([user1, user2])
+    }
+
+    func updateUser(_ user: User) -> Observable<Bool> {
+        return .just(true)
+    }
+}

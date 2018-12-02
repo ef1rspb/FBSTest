@@ -30,6 +30,16 @@
 		303E827A21B2873400A8A7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 303E827821B2873400A8A7FA /* LaunchScreen.storyboard */; };
 		303E828521B2873400A8A7FA /* FBSTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E828421B2873400A8A7FA /* FBSTestTests.swift */; };
 		303E829021B2873400A8A7FA /* FBSTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E828F21B2873400A8A7FA /* FBSTestUITests.swift */; };
+		30628F9421B3DA4E00999084 /* UserListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628F9321B3DA4E00999084 /* UserListCoordinator.swift */; };
+		30628F9621B3DD9D00999084 /* UserListModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628F9521B3DD9D00999084 /* UserListModuleFactory.swift */; };
+		30628F9821B3DDE200999084 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628F9721B3DDE200999084 /* UserListView.swift */; };
+		30628F9A21B3DE0400999084 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628F9921B3DE0400999084 /* UserDetailView.swift */; };
+		30628F9D21B3DFD700999084 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628F9C21B3DFD700999084 /* UserListViewController.swift */; };
+		30628F9F21B3E02F00999084 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628F9E21B3E02F00999084 /* UserListViewModel.swift */; };
+		30628FA121B3E3ED00999084 /* UserListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FA021B3E3ED00999084 /* UserListProvider.swift */; };
+		30628FA321B3E4BF00999084 /* UserListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FA221B3E4BF00999084 /* UserListCellViewModel.swift */; };
+		30628FA621B3E50D00999084 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FA521B3E50D00999084 /* UserListCell.swift */; };
+		30628FAD21B3FA8D00999084 /* UserListCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FAC21B3FA8D00999084 /* UserListCoordinatorOutput.swift */; };
 		3538003F6124C1EC9FCD463B /* Pods_FBSTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48547EE9AF4627C3995EA6FE /* Pods_FBSTestUITests.framework */; };
 		601F71B671B235CC5C2D6B41 /* Pods_FBSTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7088E108E4014379F58CB45D /* Pods_FBSTestTests.framework */; };
 		F6EA2F77B67C452519F76578 /* Pods_FBSTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A627E8CDC6EF3BFBBA6C96 /* Pods_FBSTest.framework */; };
@@ -82,6 +92,16 @@
 		303E828B21B2873400A8A7FA /* FBSTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FBSTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		303E828F21B2873400A8A7FA /* FBSTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSTestUITests.swift; sourceTree = "<group>"; };
 		303E829121B2873400A8A7FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30628F9321B3DA4E00999084 /* UserListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinator.swift; sourceTree = "<group>"; };
+		30628F9521B3DD9D00999084 /* UserListModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModuleFactory.swift; sourceTree = "<group>"; };
+		30628F9721B3DDE200999084 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		30628F9921B3DE0400999084 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		30628F9C21B3DFD700999084 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		30628F9E21B3E02F00999084 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		30628FA021B3E3ED00999084 /* UserListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListProvider.swift; sourceTree = "<group>"; };
+		30628FA221B3E4BF00999084 /* UserListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCellViewModel.swift; sourceTree = "<group>"; };
+		30628FA521B3E50D00999084 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		30628FAC21B3FA8D00999084 /* UserListCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinatorOutput.swift; sourceTree = "<group>"; };
 		48547EE9AF4627C3995EA6FE /* Pods_FBSTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBSTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52549AB7DBEA579FE168E437 /* Pods-FBSTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBSTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBSTest/Pods-FBSTest.debug.xcconfig"; sourceTree = "<group>"; };
 		604E47490FC0F19F8EE83D81 /* Pods-FBSTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBSTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-FBSTest/Pods-FBSTest.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				302C6F0721B2B4BF00DB89A1 /* Login */,
+				30628F9B21B3DF9F00999084 /* User list */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,6 +241,7 @@
 		302C6EDF21B2A0BC00DB89A1 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				30628F9221B3DA3100999084 /* User list flow */,
 				302C6EED21B2A39200DB89A1 /* Login flow */,
 			);
 			path = Flows;
@@ -241,6 +263,7 @@
 				302C6F0221B2B22000DB89A1 /* Imp */,
 				302C6EF821B2A6E700DB89A1 /* AuthModuleFactory.swift */,
 				302C6EFD21B2AE3B00DB89A1 /* CoordinatorFactory.swift */,
+				30628F9521B3DD9D00999084 /* UserListModuleFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -329,6 +352,45 @@
 				303E829121B2873400A8A7FA /* Info.plist */,
 			);
 			path = FBSTestUITests;
+			sourceTree = "<group>";
+		};
+		30628F9221B3DA3100999084 /* User list flow */ = {
+			isa = PBXGroup;
+			children = (
+				30628F9321B3DA4E00999084 /* UserListCoordinator.swift */,
+				30628F9721B3DDE200999084 /* UserListView.swift */,
+				30628F9921B3DE0400999084 /* UserDetailView.swift */,
+				30628FAC21B3FA8D00999084 /* UserListCoordinatorOutput.swift */,
+			);
+			path = "User list flow";
+			sourceTree = "<group>";
+		};
+		30628F9B21B3DF9F00999084 /* User list */ = {
+			isa = PBXGroup;
+			children = (
+				30628FA421B3E4CE00999084 /* Cells */,
+				30628FA721B3E58D00999084 /* Protocols */,
+				30628F9C21B3DFD700999084 /* UserListViewController.swift */,
+				30628F9E21B3E02F00999084 /* UserListViewModel.swift */,
+			);
+			path = "User list";
+			sourceTree = "<group>";
+		};
+		30628FA421B3E4CE00999084 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				30628FA221B3E4BF00999084 /* UserListCellViewModel.swift */,
+				30628FA521B3E50D00999084 /* UserListCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		30628FA721B3E58D00999084 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				30628FA021B3E3ED00999084 /* UserListProvider.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		C942E7714EBA32529756956B /* Frameworks */ = {
@@ -687,6 +749,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30628FA621B3E50D00999084 /* UserListCell.swift in Sources */,
 				302C6EF421B2A4AE00DB89A1 /* AuthCoordinator.swift in Sources */,
 				302C6EE121B2A12200DB89A1 /* Router.swift in Sources */,
 				302C6F0D21B2B97500DB89A1 /* UserService.swift in Sources */,
@@ -694,18 +757,27 @@
 				302C6EE521B2A18900DB89A1 /* Presentable.swift in Sources */,
 				302C6EE721B2A1B900DB89A1 /* Coordinator.swift in Sources */,
 				302C6F0421B2B23A00DB89A1 /* FBSCoordinatorFactory.swift in Sources */,
+				30628FA321B3E4BF00999084 /* UserListCellViewModel.swift in Sources */,
+				30628F9821B3DDE200999084 /* UserListView.swift in Sources */,
+				30628F9421B3DA4E00999084 /* UserListCoordinator.swift in Sources */,
+				30628F9F21B3E02F00999084 /* UserListViewModel.swift in Sources */,
 				302C6EE921B2A1ED00DB89A1 /* BaseView.swift in Sources */,
 				302C6EF221B2A48F00DB89A1 /* AuthCoordinatorOutput.swift in Sources */,
 				302C6F0621B2B27B00DB89A1 /* FBSModuleFactory.swift in Sources */,
+				30628F9621B3DD9D00999084 /* UserListModuleFactory.swift in Sources */,
 				302C6EEB21B2A21B00DB89A1 /* BaseCoordinator.swift in Sources */,
+				30628FAD21B3FA8D00999084 /* UserListCoordinatorOutput.swift in Sources */,
 				302C6F0B21B2B56E00DB89A1 /* LoginViewModel.swift in Sources */,
 				302C6EE321B2A13500DB89A1 /* FBSRouter.swift in Sources */,
 				302C6EEF21B2A3F300DB89A1 /* LoginView.swift in Sources */,
 				302C6F0921B2B55400DB89A1 /* LoginViewController.swift in Sources */,
+				30628FA121B3E3ED00999084 /* UserListProvider.swift in Sources */,
+				30628F9D21B3DFD700999084 /* UserListViewController.swift in Sources */,
 				303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */,
 				302C6EFC21B2ADD300DB89A1 /* ApplicationCoordinator.swift in Sources */,
 				302C6EFE21B2AE3B00DB89A1 /* CoordinatorFactory.swift in Sources */,
 				302C6F0F21B2B9C100DB89A1 /* User.swift in Sources */,
+				30628F9A21B3DE0400999084 /* UserDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

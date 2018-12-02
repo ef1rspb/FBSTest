@@ -29,7 +29,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     override func start() {
         switch instructor {
         case .auth: runAuthFlow()
-        case .main: runAuthFlow()
+        case .main: runUserListFlow()
         }
     }
 
@@ -44,4 +44,14 @@ final class ApplicationCoordinator: BaseCoordinator {
         coordinator.start()
     }
 
+    private func runUserListFlow() {
+        let coordinator = coordinatorFactory.makeUserListCoordinator(router: router)
+        coordinator.finishFlow = { [weak self, weak coordinator] in
+            isAutorized = false
+            self?.start()
+            self?.removeDependency(coordinator)
+        }
+        addDependency(coordinator)
+        coordinator.start()
+    }
 }
