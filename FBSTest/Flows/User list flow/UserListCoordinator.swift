@@ -28,8 +28,11 @@ final class UserListCoordinator: BaseCoordinator, UserListCoordinatorOutput {
     }
 
     private func showUserDetail(_ user: User) {
-//
-//        let userDetailFlowOutput = factory.makeUserDetailOutput(user: user)
-//        router.push(userDetailFlowOutput)
+
+        let userDetailFlowOutput = factory.makeUserDetailsOutput(user: user)
+        userDetailFlowOutput.onImageUpdated = { [weak self] _ in
+            self?.router.popModule(animated: true)
+        }
+        router.push(userDetailFlowOutput)
     }
 }

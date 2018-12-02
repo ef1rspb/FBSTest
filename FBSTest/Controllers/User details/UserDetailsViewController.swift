@@ -10,7 +10,9 @@ import UIKit
 import RxSwift
 import LeadKit
 
-final class UserDetailsViewController: BaseConfigurableController<UserDetailsViewModel> {
+final class UserDetailsViewController: BaseConfigurableController<UserDetailsViewModel>, UserDetailsView {
+
+    var onImageUpdated: ((Data) -> Void)?
 
     private let disposeBag = DisposeBag()
 
@@ -32,6 +34,8 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
     private lazy var updateImageButton: UIButton = {
         let button = UIButton()
         button.setTitle("Update image", for: .normal)
+        view.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.topAnchor.constraint(equalTo: userAvatarImageView.bottomAnchor, constant: 10).isActive = true
         return button
     }()
@@ -46,7 +50,7 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
         updateImageButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 print("TAP")
-                //self?
+                self?.onImageUpdated?(Data([1,2,3]))
             })
             .disposed(by: disposeBag)
     }
