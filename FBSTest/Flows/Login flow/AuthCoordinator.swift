@@ -19,7 +19,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
         loginOutput.onCompleteAuth = { [weak self] in
             self?.finishFlow?()
         }
-        router.setRootModule(loginOutput)
+        router.setRootModule(loginOutput, hideBar: true)
     }
 
 }
