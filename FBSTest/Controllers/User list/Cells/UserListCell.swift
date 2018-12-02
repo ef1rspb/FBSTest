@@ -45,5 +45,10 @@ extension UserListCell: ConfigurableCell {
 
     func configure(with viewModel: UserListCellViewModel) {
         titleLabel.text = viewModel.title
+        if let data = viewModel.user.avatarImageData {
+            avatarImageView.image = UIImage(data: data) ?? UIImage.User.avatarPlaceholder
+        } else {
+            avatarImageView.image = UIImage.User.avatarPlaceholder
+        }
     }
 }

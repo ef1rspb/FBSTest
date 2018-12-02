@@ -17,14 +17,14 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
     private let disposeBag = DisposeBag()
 
     private lazy var userAvatarImageView: UIImageView = {
-        var image: UIImage?
+        var image = UIImage.User.avatarPlaceholder
         if let data = viewModel.avatarImageData {
-            image = UIImage(data: data) ?? UIImage.User.avatarPlaceholder
+            image = UIImage(data: data) ?? image
         }
         let imageView = UIImageView(image: image)
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
@@ -34,9 +34,11 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
     private lazy var updateImageButton: UIButton = {
         let button = UIButton()
         button.setTitle("Update image", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
         view.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint(equalTo: userAvatarImageView.bottomAnchor, constant: 10).isActive = true
+        button.topAnchor.constraint(equalTo: userAvatarImageView.bottomAnchor, constant: 20).isActive = true
+        button.centerXAnchor.constraint(equalTo: userAvatarImageView.centerXAnchor).isActive = true
         return button
     }()
 
@@ -49,8 +51,7 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
     override func bindViews() {
         updateImageButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                print("TAP")
-                self?.onImageUpdated?(Data([1,2,3]))
+                self?.onImageUpdated?(Data([1, 2, 3]))
             })
             .disposed(by: disposeBag)
     }
