@@ -55,6 +55,18 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
             })
             .disposed(by: disposeBag)
     }
+
+    override func configureBarButtons() {
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .done, target: nil, action: nil)
+        logoutButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.onLogout?()
+            })
+            .disposed(by: disposeBag)
+        
+        navigationItem.rightBarButtonItem = logoutButton
+    }
+
 }
 
 extension UserListViewController {

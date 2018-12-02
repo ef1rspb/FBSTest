@@ -9,17 +9,19 @@
 import Foundation
 import LeadKit
 import RxSwift
+import RxCocoa
 
 final class UserListViewModel {
 
-    private let userListSubject = BehaviorSubject<[UserListCellViewModel]>(value: [])
+    private let userListRelay = BehaviorRelay<[UserListCellViewModel]>(value: [])
     private let disposeBag = DisposeBag()
 
     init(userListProvider: UserListProvider) {
         userListProvider
             .getUsers()
-            .map { $0.map { UserListCellViewModel(user: $0) } }
-            .bind(to: userListSubject)
+            .map {
+                $0.map { UserListCellViewModel(user: $0) } }
+            .bind(to: userListRelay)
             .disposed(by: disposeBag)
     }
 }
@@ -27,6 +29,6 @@ final class UserListViewModel {
 extension UserListViewModel {
 
     var userListObservable: Observable<[UserListCellViewModel]> {
-        return userListSubject.asObservable()
+        return userListRelay.asObservable()
     }
 }

@@ -1,4 +1,5 @@
-final class ItemCoordinator: BaseCoordinator {
+final class UserListCoordinator: BaseCoordinator, UserListCoordinatorOutput {
+    var finishFlow: (() -> Void)?
 
     private let factory: UserListModuleFactory
     private let coordinatorFactory: CoordinatorFactory
@@ -21,18 +22,14 @@ final class ItemCoordinator: BaseCoordinator {
             self?.showUserDetail(user)
         }
         usersOutput.onLogout = { [weak self] in
-            self?.runLogoutFlow()
+            self?.finishFlow?()
         }
         router.setRootModule(usersOutput)
     }
 
     private func showUserDetail(_ user: User) {
-
-        let userDetailFlowOutput = factory.makeUserDetailOutput(user: user)
-        router.push(userDetailFlowOutput)
-    }
-
-    private func runLogoutFlow() {
-
+//
+//        let userDetailFlowOutput = factory.makeUserDetailOutput(user: user)
+//        router.push(userDetailFlowOutput)
     }
 }

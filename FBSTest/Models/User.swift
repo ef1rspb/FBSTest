@@ -13,6 +13,11 @@ struct User: Codable {
     let nickname: String
     let avatarUrl: String?
 
+    init(nickname: String, avatarUrl: String?) {
+        self.nickname = nickname
+        self.avatarUrl = avatarUrl
+    }
+
     enum CodingKeys: String, CodingKey {
         case nickname = "login"
         case avatarUrl = "avatar_url"
