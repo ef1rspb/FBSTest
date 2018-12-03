@@ -68,10 +68,13 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
     // because of BaseConfigurableController generic class
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        self.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerController.InfoKey.originalImage]! as? UIImage {
             userAvatarImageView.image = image
+            if let data = image.pngData() {
+                onImageUpdated?(data)
+            }
         }
-        self.dismiss(animated: true, completion: nil)
     }
 }
 
