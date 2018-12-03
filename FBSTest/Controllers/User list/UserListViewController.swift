@@ -14,7 +14,7 @@ import TableKit
 final class UserListViewController: BaseConfigurableController<UserListViewModel>, UserListView {
 
     var onLogout: (() -> Void)?
-    var onUserSelect: ((User) -> Void)?
+    var onUserSelect: ((UserViewModel) -> Void)?
 
     private let disposeBag = DisposeBag()
 
@@ -39,6 +39,12 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
         initialLoadView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        loadUserList(reload: false)
+        view.backgroundColor = .white
+    }
     override func bindViews() {
         viewModel
             .userObservable
@@ -47,14 +53,6 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
             .delay(1.5, scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
                 self?.insertTableHeaderView(user: $0)
-            })
-            .disposed(by: disposeBag)
-
-        viewModel
-            .userListObservable
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] in
-                self?.configureTableView(cellViewModels: $0)
             })
             .disposed(by: disposeBag)
     }
@@ -74,10 +72,21 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
 
 extension UserListViewController {
 
+    private func loadUserList(reload: Bool) {
+        viewModel
+            .loadCellViewModels(reload: reload)
+            .observeOn(MainScheduler.instance)
+            .share()
+            .subscribe(onNext: { [weak self] in
+                self?.configureTableView(cellViewModels: $0)
+            })
+            .disposed(by: disposeBag)
+    }
+
     private func configureTableView(cellViewModels: [UserListCellViewModel]) {
         let rows = cellViewModels.map { TableRow<UserListCell>(item: $0)
             .on(.click) { [weak self] (options) in
-                self?.onUserSelect?(options.item.user)
+                self?.onUserSelect?(options.item.userViewModel)
             } }
         tableDirector.replace(withRows: rows)
     }
@@ -96,7 +105,7 @@ extension UserListViewController {
         label.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
         label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
 
-        let image = user.avatarImage
+        let image = UIImage.User.avatarPlaceholder
         let avatarImageView = UIImageView(image: image)
         headerView.addSubview(avatarImageView)
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false

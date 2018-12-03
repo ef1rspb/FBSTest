@@ -10,8 +10,8 @@ extension FBSModuleFactory: AuthModuleFactory {
 
 extension FBSModuleFactory: UserListModuleFactory {
 
-    func makeUserDetailsOutput(user: User) -> UserDetailsView {
-        let viewModel = UserDetailsViewModel(user: user)
+    func makeUserDetailsOutput(userViewModel: UserViewModel) -> UserDetailsView {
+        let viewModel = UserDetailsViewModel(userViewModel: userViewModel)
         let viewController = UserDetailsViewController(viewModel: viewModel)
         return viewController
     }

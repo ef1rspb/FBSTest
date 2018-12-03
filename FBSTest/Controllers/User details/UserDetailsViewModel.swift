@@ -9,24 +9,24 @@
 import Foundation
 
 final class UserDetailsViewModel {
-    private let user: User
+    let userViewModel: UserViewModel
 
-    init(user: User) {
-        self.user = user
+    init(userViewModel: UserViewModel) {
+        self.userViewModel = userViewModel
     }
 
-    func updatedUser(avatarImageData: Data?) -> User {
-        return user.with(avatarImageData: avatarImageData)
+    func updateUser(avatarImageData: Data?) {
+        guard let data = avatarImageData else {
+            return
+        }
+        userViewModel.updateImage(data: data)
     }
+
 }
 
 extension UserDetailsViewModel {
 
     var header: String {
-        return user.nickname
-    }
-
-    var avatarImageData: Data? {
-        return user.avatarImageData
+        return userViewModel.user.nickname
     }
 }

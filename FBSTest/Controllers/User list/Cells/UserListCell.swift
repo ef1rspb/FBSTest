@@ -50,10 +50,8 @@ extension UserListCell: ConfigurableCell {
 
     func configure(with viewModel: UserListCellViewModel) {
         titleLabel.text = viewModel.title
-        viewModel
-            .imageObservable?
-            .map { UIImage(data: $0) }
-            .asDriver(onErrorJustReturn: UIImage.User.avatarPlaceholder)
+        viewModel.userViewModel
+            .imageDriver
             .drive(onNext: { [weak self] in
                 self?.avatarImageView.image = $0
             })

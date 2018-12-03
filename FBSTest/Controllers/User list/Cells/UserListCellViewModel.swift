@@ -12,12 +12,10 @@ import RxSwift
 final class UserListCellViewModel {
 
     let title: String
-    let user: User
-    let imageObservable: Observable<Data>?
+    let userViewModel: UserViewModel
 
-    init(user: User, imageObservable: Observable<Data>?) {
-        title = user.nickname
-        self.user = user
-        self.imageObservable = imageObservable
+    init(userViewModel: UserViewModel) {
+        title = userViewModel.user.nickname
+        self.userViewModel = userViewModel
     }
 }

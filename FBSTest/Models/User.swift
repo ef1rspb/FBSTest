@@ -12,17 +12,14 @@ import Foundation
 struct User: Codable {
     let nickname: String
     let avatarUrl: String
-    let avatarImageData: Data?
 
-    init(nickname: String, avatarUrl: String, avatarImageData: Data?) {
+    init(nickname: String, avatarUrl: String) {
         self.nickname = nickname
         self.avatarUrl = avatarUrl
-        self.avatarImageData = avatarImageData
     }
 
     enum CodingKeys: String, CodingKey {
         case nickname = "login"
         case avatarUrl = "avatar_url"
-        case avatarImageData = "avatar-image-data"
     }
 }

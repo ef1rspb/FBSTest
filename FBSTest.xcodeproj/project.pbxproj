@@ -43,7 +43,7 @@
 		30628FB421B4256E00999084 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FB321B4256E00999084 /* UserDetailsViewController.swift */; };
 		30628FB621B42A8000999084 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FB521B42A8000999084 /* UIImage+Extensions.swift */; };
 		30628FB921B4469C00999084 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FB821B4469C00999084 /* UserDetailsView.swift */; };
-		30862CF221B463970083B3CE /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30862CF121B463970083B3CE /* User+Extensions.swift */; };
+		306343CF21B5A10B0006AB37 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306343CE21B5A10B0006AB37 /* UserViewModel.swift */; };
 		30862CF421B516EB0083B3CE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30862CF321B516EB0083B3CE /* NetworkService.swift */; };
 		3538003F6124C1EC9FCD463B /* Pods_FBSTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48547EE9AF4627C3995EA6FE /* Pods_FBSTestUITests.framework */; };
 		601F71B671B235CC5C2D6B41 /* Pods_FBSTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7088E108E4014379F58CB45D /* Pods_FBSTestTests.framework */; };
@@ -110,7 +110,7 @@
 		30628FB321B4256E00999084 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		30628FB521B42A8000999084 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		30628FB821B4469C00999084 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
-		30862CF121B463970083B3CE /* User+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Extensions.swift"; sourceTree = "<group>"; };
+		306343CE21B5A10B0006AB37 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		30862CF321B516EB0083B3CE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		48547EE9AF4627C3995EA6FE /* Pods_FBSTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBSTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52549AB7DBEA579FE168E437 /* Pods-FBSTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBSTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBSTest/Pods-FBSTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				302C6F0E21B2B9C100DB89A1 /* User.swift */,
+				306343CE21B5A10B0006AB37 /* UserViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -221,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				30628FB521B42A8000999084 /* UIImage+Extensions.swift */,
-				30862CF121B463970083B3CE /* User+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -808,11 +808,11 @@
 				30628FA121B3E3ED00999084 /* UserListProvider.swift in Sources */,
 				30628F9D21B3DFD700999084 /* UserListViewController.swift in Sources */,
 				303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */,
-				30862CF221B463970083B3CE /* User+Extensions.swift in Sources */,
 				30628FB421B4256E00999084 /* UserDetailsViewController.swift in Sources */,
 				302C6EFC21B2ADD300DB89A1 /* ApplicationCoordinator.swift in Sources */,
 				30628FB221B422E700999084 /* UserDetailsViewModel.swift in Sources */,
 				302C6EFE21B2AE3B00DB89A1 /* CoordinatorFactory.swift in Sources */,
+				306343CF21B5A10B0006AB37 /* UserViewModel.swift in Sources */,
 				302C6F0F21B2B9C100DB89A1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
