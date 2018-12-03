@@ -1,4 +1,4 @@
 protocol UserListModuleFactory {
-    func makeUsersOutput() -> UserListView
-    //func makeUserDetailOutput(user: User) -> UserDetailView
+    func makeUsersOutput() -> (UserListView, UserListProvider)
+    func makeUserDetailsOutput(user: User) -> UserDetailsView
 }

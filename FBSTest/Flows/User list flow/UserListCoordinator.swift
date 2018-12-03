@@ -17,9 +17,9 @@ final class UserListCoordinator: BaseCoordinator, UserListCoordinatorOutput {
 
     private func showUserList() {
 
-        let usersOutput = factory.makeUsersOutput()
-        usersOutput.onUserSelect = { [weak self] (user) in
-            self?.showUserDetail(user)
+        let (usersOutput, dataProvider) = factory.makeUsersOutput()
+        usersOutput.onUserSelect = { [weak self, weak dataProvider] user in
+            self?.showUserDetail(user, dataProvider: dataProvider)
         }
         usersOutput.onLogout = { [weak self] in
             self?.finishFlow?()
@@ -27,9 +27,13 @@ final class UserListCoordinator: BaseCoordinator, UserListCoordinatorOutput {
         router.setRootModule(usersOutput)
     }
 
-    private func showUserDetail(_ user: User) {
-//
-//        let userDetailFlowOutput = factory.makeUserDetailOutput(user: user)
-//        router.push(userDetailFlowOutput)
+    private func showUserDetail(_ user: User, dataProvider: UserListProvider?) {
+
+        let userDetailFlowOutput = factory.makeUserDetailsOutput(user: user)
+        userDetailFlowOutput.onUserUpdated = { [weak self, weak dataProvider] user in
+            dataProvider?.updateUser(user)
+            self?.router.popModule(animated: true)
+        }
+        router.push(userDetailFlowOutput)
     }
 }

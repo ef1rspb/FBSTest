@@ -24,7 +24,6 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
 
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
-        table.tableHeaderView = tableHeaderView
         view.addSubview(table)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -35,18 +34,22 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
         return table
     }()
 
-    private lazy var tableHeaderView: UIView = {
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30))
-        header.backgroundColor = .red
-        return header
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         initialLoadView()
     }
 
     override func bindViews() {
+        viewModel
+            .userObservable
+            .observeOn(MainScheduler.instance)
+            // simulate network request delay
+            .delay(1.5, scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.insertTableHeaderView(user: $0)
+            })
+            .disposed(by: disposeBag)
+
         viewModel
             .userListObservable
             .observeOn(MainScheduler.instance)
@@ -63,7 +66,7 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
                 self?.onLogout?()
             })
             .disposed(by: disposeBag)
-        
+
         navigationItem.rightBarButtonItem = logoutButton
     }
 
@@ -77,5 +80,38 @@ extension UserListViewController {
                 self?.onUserSelect?(options.item.user)
             } }
         tableDirector.append(rows: rows)
+    }
+
+    private func createTableHeaderView(user: User) -> UIView {
+        let height: CGFloat = 70
+        let headerView = UIView(frame: CGRect(x: 0,
+                                              y: 0,
+                                              width: view.frame.width,
+                                              height: height))
+
+        let label = UILabel()
+        label.text = user.nickname
+        headerView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+
+        let image = user.avatarImage
+        let avatarImageView = UIImageView(image: image)
+        headerView.addSubview(avatarImageView)
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+        avatarImageView.trailingAnchor.constraint(equalTo: label.leadingAnchor, constant: -15).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: (height - 10)/2).isActive = true
+        avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor).isActive = true
+
+        return headerView
+    }
+
+    private func insertTableHeaderView(user: User) {
+        let headerView = createTableHeaderView(user: user)
+        tableView.beginUpdates()
+        tableView.tableHeaderView = headerView
+        tableView.endUpdates()
     }
 }
