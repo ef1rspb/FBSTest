@@ -21,8 +21,10 @@ final class UserListViewModel {
     init(userListProvider: UserListProvider, userService: UserService) {
         userListProvider
             .getUsers()
-            .map {
-                $0.map { UserListCellViewModel(user: $0) } }
+            .map { [weak userListProvider] users in
+                return users.map { UserListCellViewModel(user: $0,
+                                                         imageObservable: userListProvider?.loadAvatarImage($0)) }
+            }
             .bind(to: userListRelay)
             .disposed(by: disposeBag)
 

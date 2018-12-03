@@ -9,8 +9,12 @@
 import UIKit
 import TableKit
 import LeadKit
+import RxSwift
+import RxCocoa
 
 final class UserListCell: SeparatorCell {
+
+    private var disposeBag = DisposeBag()
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -34,7 +38,8 @@ final class UserListCell: SeparatorCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        disposeBag = DisposeBag()
     }
 
 }
@@ -45,6 +50,13 @@ extension UserListCell: ConfigurableCell {
 
     func configure(with viewModel: UserListCellViewModel) {
         titleLabel.text = viewModel.title
-        avatarImageView.image = viewModel.user.avatarImage
+        viewModel
+            .imageObservable?
+            .map { UIImage(data: $0) }
+            .asDriver(onErrorJustReturn: UIImage.User.avatarPlaceholder)
+            .drive(onNext: { [weak self] in
+                self?.avatarImageView.image = $0
+            })
+            .disposed(by: disposeBag)
     }
 }

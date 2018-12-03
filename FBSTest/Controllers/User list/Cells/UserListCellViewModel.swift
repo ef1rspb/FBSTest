@@ -7,13 +7,17 @@
 //
 
 import Foundation
+import RxSwift
 
 final class UserListCellViewModel {
 
     let title: String
     let user: User
-    init(user: User) {
+    let imageObservable: Observable<Data>?
+
+    init(user: User, imageObservable: Observable<Data>?) {
         title = user.nickname
         self.user = user
+        self.imageObservable = imageObservable
     }
 }
