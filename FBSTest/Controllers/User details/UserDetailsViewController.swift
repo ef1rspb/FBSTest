@@ -15,7 +15,7 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
                                         UIImagePickerControllerDelegate,
                                         UINavigationControllerDelegate {
 
-    var onImageUpdated: ((Data) -> Void)?
+    var onUserUpdated: ((User) -> Void)?
 
     private let disposeBag = DisposeBag()
 
@@ -71,9 +71,8 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
         self.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerController.InfoKey.originalImage]! as? UIImage {
             userAvatarImageView.image = image
-            if let data = image.pngData() {
-                onImageUpdated?(data)
-            }
+            let updatedUser = viewModel.updatedUser(avatarImageData: image.pngData())
+            onUserUpdated?(updatedUser)
         }
     }
 }

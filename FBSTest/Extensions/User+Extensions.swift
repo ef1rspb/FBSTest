@@ -9,12 +9,18 @@
 import UIKit
 
 extension User {
-    
+
     var avatarImage: UIImage {
         if let data = avatarImageData {
             return UIImage(data: data) ?? UIImage.User.avatarPlaceholder
         } else {
             return UIImage.User.avatarPlaceholder
         }
+    }
+
+    func with(avatarImageData data: Data?) -> User {
+        return User(nickname: self.nickname,
+                    avatarUrl: self.avatarUrl,
+                    avatarImageData: data)
     }
 }

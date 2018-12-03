@@ -7,25 +7,16 @@
 //
 
 import Foundation
-import RxSwift
 
 final class UserDetailsViewModel {
     private let user: User
-    private let userProvider: UserListProvider
 
-    init(user: User, userProvider: UserListProvider) {
+    init(user: User) {
         self.user = user
-        self.userProvider = userProvider
     }
-}
 
-extension UserDetailsViewModel {
-
-    func updateUserAvatar(data: Data) -> Observable<Bool> {
-        let updatedUser = User(nickname: user.nickname,
-                               avatarUrl: user.avatarUrl,
-                               avatarImageData: data)
-        return userProvider.updateUser(updatedUser)
+    func updatedUser(avatarImageData: Data?) -> User {
+        return user.with(avatarImageData: avatarImageData)
     }
 }
 

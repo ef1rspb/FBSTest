@@ -28,7 +28,7 @@ extension FBSUserService: UserListProvider {
         return .just([user1, user2])
     }
 
-    func updateUser(_ user: User) -> Observable<Bool> {
-        return .just(true)
+    func updateUser(_ user: User) {
+        print(user.avatarImageData!.count)
     }
 }

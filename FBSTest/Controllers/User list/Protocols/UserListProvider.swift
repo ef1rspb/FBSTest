@@ -11,5 +11,5 @@ import RxSwift
 
 protocol UserListProvider: class {
     func getUsers() -> Observable<[User]>
-    func updateUser(_ user: User) -> Observable<Bool>
+    func updateUser(_ user: User)
 }
