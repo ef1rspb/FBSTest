@@ -46,6 +46,15 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
         view.backgroundColor = .white
     }
     override func bindViews() {
+        let refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl.rx
+            .controlEvent(.valueChanged)
+            .subscribe(onNext: { [weak self] _ in
+                self?.loadUserList(reload: true)
+            })
+            .disposed(by: disposeBag)
+
         viewModel
             .userObservable
             .observeOn(MainScheduler.instance)
@@ -77,6 +86,9 @@ extension UserListViewController {
             .loadCellViewModels(reload: reload)
             .observeOn(MainScheduler.instance)
             .share()
+            .do(onNext: { [weak self] _ in
+                self?.tableView.refreshControl?.endRefreshing()
+            })
             .subscribe(onNext: { [weak self] in
                 self?.configureTableView(cellViewModels: $0)
             })
