@@ -14,6 +14,12 @@ protocol UserService: class {
 
 final class FBSUserService: UserService {
 
+    private let networkService: NetworkService
+
+    init(networkService: NetworkService) {
+        self.networkService = networkService
+    }
+
     func obtainUser() -> Observable<User> {
         let user = User(nickname: "Sasha", avatarUrl: nil, avatarImageData: nil)
         return .just(user)
@@ -23,9 +29,7 @@ final class FBSUserService: UserService {
 extension FBSUserService: UserListProvider {
 
     func getUsers() -> Observable<[User]> {
-        let user1 = User(nickname: "user1", avatarUrl: nil, avatarImageData: nil)
-        let user2 = User(nickname: "user2", avatarUrl: nil, avatarImageData: nil)
-        return .just([user1, user2])
+        return networkService.getUsers()
     }
 
     func updateUser(_ user: User) {

@@ -17,7 +17,8 @@ extension FBSModuleFactory: UserListModuleFactory {
     }
 
     func makeUsersOutput() -> (UserListView, UserListProvider) {
-        let provider = FBSUserService()
+        let networkService = DefaultNetorkService()
+        let provider = FBSUserService(networkService: networkService)
         let viewModel = UserListViewModel(userListProvider: provider, userService: provider)
         let viewController = UserListViewController(viewModel: viewModel)
         return (viewController, provider)

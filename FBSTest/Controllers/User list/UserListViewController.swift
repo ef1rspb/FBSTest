@@ -79,7 +79,7 @@ extension UserListViewController {
             .on(.click) { [weak self] (options) in
                 self?.onUserSelect?(options.item.user)
             } }
-        tableDirector.append(rows: rows)
+        tableDirector.replace(withRows: rows)
     }
 
     private func createTableHeaderView(user: User) -> UIView {
