@@ -36,8 +36,8 @@ final class UserListCell: SeparatorCell {
         return imageView
     }()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func prepareForReuse() {
+        super.prepareForReuse()
 
         disposeBag = DisposeBag()
     }
