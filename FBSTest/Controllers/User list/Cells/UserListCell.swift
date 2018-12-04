@@ -27,12 +27,15 @@ final class UserListCell: SeparatorCell {
 
     private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView(image: nil)
+        let width: CGFloat = 80.0
+        imageView.layer.cornerRadius = width / 2
+        imageView.clipsToBounds = true
         contentView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: width).isActive = true
         return imageView
     }()
 
