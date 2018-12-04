@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import RxSwift
 
 final class UserListCellViewModel {
 
     let title: String
-    let user: User
-    init(user: User) {
-        title = user.nickname
-        self.user = user
+    let userViewModel: UserViewModel
+
+    init(userViewModel: UserViewModel) {
+        title = userViewModel.user.nickname
+        self.userViewModel = userViewModel
     }
 }

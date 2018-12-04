@@ -14,21 +14,36 @@ protocol UserService: class {
 
 final class FBSUserService: UserService {
 
+    private let networkService: NetworkService
+    private var usersCache: [String: Data] = [:]
+
+    init(networkService: NetworkService) {
+        self.networkService = networkService
+    }
+
     func obtainUser() -> Observable<User> {
-        let user = User(nickname: "Sasha", avatarUrl: nil, avatarImageData: nil)
+        let user = User(nickname: "Sasha",
+                        avatarUrl: "https://avatars0.githubusercontent.com/u/1?v=4")
         return .just(user)
     }
 }
 
 extension FBSUserService: UserListProvider {
 
-    func getUsers() -> Observable<[User]> {
-        let user1 = User(nickname: "user1", avatarUrl: nil, avatarImageData: nil)
-        let user2 = User(nickname: "user2", avatarUrl: nil, avatarImageData: nil)
-        return .just([user1, user2])
+    func loadAvatarImage(_ user: User) -> Observable<Data> {
+        if let data = usersCache[user.nickname] {
+            return .just(data)
+        } else {
+            return networkService.loadImage(url: user.avatarUrl)
+        }
     }
 
-    func updateUser(_ user: User) {
-        print(user.avatarImageData!.count)
+    func getUsers(reload: Bool = false) -> Observable<[User]> {
+        return networkService
+            .getUsers()
+    }
+
+    func updateUser(_ user: UserViewModel) {
+        usersCache[user.nickname] = user.imageData
     }
 }

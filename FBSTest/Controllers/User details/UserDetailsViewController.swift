@@ -15,15 +15,12 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
                                         UIImagePickerControllerDelegate,
                                         UINavigationControllerDelegate {
 
-    var onUserUpdated: ((User) -> Void)?
+    var onUserUpdated: ((UserViewModel) -> Void)?
 
     private let disposeBag = DisposeBag()
 
     private lazy var userAvatarImageView: UIImageView = {
-        var image = UIImage.User.avatarPlaceholder
-        if let data = viewModel.avatarImageData {
-            image = UIImage(data: data) ?? image
-        }
+        let image = UIImage.User.avatarPlaceholder
         let imageView = UIImageView(image: image)
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +54,13 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
                 self?.showPhotoSourceAlert()
             })
             .disposed(by: disposeBag)
+
+        viewModel.userViewModel
+            .imageDriver
+            .drive(onNext: { [weak self] in
+                self?.userAvatarImageView.image = $0
+            })
+            .disposed(by: disposeBag)
     }
 
     override func configureAppearance() {
@@ -68,11 +72,11 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
     // because of BaseConfigurableController generic class
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        self.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerController.InfoKey.originalImage]! as? UIImage {
             userAvatarImageView.image = image
-            let updatedUser = viewModel.updatedUser(avatarImageData: image.pngData())
-            onUserUpdated?(updatedUser)
+            viewModel.updateUser(avatarImageData: image.pngData())
+            onUserUpdated?(viewModel.userViewModel)
         }
     }
 }
@@ -81,12 +85,12 @@ extension UserDetailsViewController {
 
     func showPhotoSourceAlert() {
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
-            self.openCamera()
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
+            self?.openCamera()
         }))
 
-        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
-            self.openGallery()
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { [weak self] _ in
+            self?.openGallery()
         }))
 
         alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))

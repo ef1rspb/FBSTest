@@ -13,27 +13,24 @@ import RxCocoa
 
 final class UserListViewModel {
 
-    private let userListRelay = BehaviorRelay<[UserListCellViewModel]>(value: [])
     private let disposeBag = DisposeBag()
 
     private let userService: UserService
+    private let userListProvider: UserListProvider
 
     init(userListProvider: UserListProvider, userService: UserService) {
-        userListProvider
-            .getUsers()
-            .map {
-                $0.map { UserListCellViewModel(user: $0) } }
-            .bind(to: userListRelay)
-            .disposed(by: disposeBag)
-
+        self.userListProvider = userListProvider
         self.userService = userService
     }
 }
 
 extension UserListViewModel {
 
-    var userListObservable: Observable<[UserListCellViewModel]> {
-        return userListRelay.asObservable()
+    func loadCellViewModels(reload: Bool) -> Observable<[UserListCellViewModel]> {
+        return userListProvider
+            .getUsers(reload: reload)
+            .map { $0.map { UserViewModel(user: $0, imageObservable: self.userListProvider.loadAvatarImage($0)) } }
+            .map { $0.map { UserListCellViewModel(userViewModel: $0) } }
     }
 
     var userObservable: Observable<User> {

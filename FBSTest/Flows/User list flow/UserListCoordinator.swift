@@ -27,9 +27,9 @@ final class UserListCoordinator: BaseCoordinator, UserListCoordinatorOutput {
         router.setRootModule(usersOutput)
     }
 
-    private func showUserDetail(_ user: User, dataProvider: UserListProvider?) {
+    private func showUserDetail(_ user: UserViewModel, dataProvider: UserListProvider?) {
 
-        let userDetailFlowOutput = factory.makeUserDetailsOutput(user: user)
+        let userDetailFlowOutput = factory.makeUserDetailsOutput(userViewModel: user)
         userDetailFlowOutput.onUserUpdated = { [weak self, weak dataProvider] user in
             dataProvider?.updateUser(user)
             self?.router.popModule(animated: true)
