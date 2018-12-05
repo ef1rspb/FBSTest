@@ -19,7 +19,8 @@ extension FBSModuleFactory: UserListModuleFactory {
 
     func makeUserDetailsOutput(userViewModel: UserViewModel) -> UserDetailsView {
         let viewModel = UserDetailsViewModel(userViewModel: userViewModel)
-        let viewController = UserDetailsViewController(viewModel: viewModel)
+        let viewController = UserDetailsViewController()
+        viewController.viewModel = viewModel
         return viewController
     }
 

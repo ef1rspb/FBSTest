@@ -8,14 +8,11 @@
 
 import UIKit
 import RxSwift
-import LeadKit
 
-final class UserDetailsViewController: BaseConfigurableController<UserDetailsViewModel>,
-                                        UserDetailsView,
-                                        UIImagePickerControllerDelegate,
-                                        UINavigationControllerDelegate {
+final class UserDetailsViewController: UIViewController, UserDetailsView {
 
     var onUserUpdated: ((UserViewModel) -> Void)?
+    var viewModel: UserDetailsViewModel!
 
     private let disposeBag = DisposeBag()
 
@@ -45,10 +42,6 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initialLoadView()
-    }
-
-    override func bindViews() {
         updateImageButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.showPhotoSourceAlert()
@@ -63,13 +56,16 @@ final class UserDetailsViewController: BaseConfigurableController<UserDetailsVie
             .disposed(by: disposeBag)
     }
 
-    override func configureAppearance() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         view.backgroundColor = .white
         title = viewModel.header
     }
+}
 
-    // we couldn't conformance to UIImagePickerControllerDelegate,
-    // because of BaseConfigurableController generic class
+extension UserDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         picker.dismiss(animated: true, completion: nil)
@@ -93,7 +89,7 @@ extension UserDetailsViewController {
             self?.openGallery()
         }))
 
-        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         self.present(alert, animated: true, completion: nil)
     }
@@ -106,7 +102,9 @@ extension UserDetailsViewController {
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
         } else {
-            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            let alert  = UIAlertController(title: "Warning",
+                                           message: "You don't have perission to access camera",
+                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
