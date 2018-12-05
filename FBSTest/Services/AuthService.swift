@@ -17,24 +17,12 @@ protocol AuthService {
 
 final class FBSAuthService: AuthService {
 
-    enum Constants {
-        static let authHeaderName = "Authorization"
-    }
-
     var isUserLoggedIn: Bool {
         return KeychainService.shared.authToken != nil
     }
 
     var authToken: String? {
         return KeychainService.shared.authToken
-    }
-
-    var authHeaders: [String: String]? {
-        guard let authToken = KeychainService.shared.authToken else {
-            return nil
-        }
-
-        return [Constants.authHeaderName: authToken]
     }
 
     func logout() {

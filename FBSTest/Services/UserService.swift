@@ -36,9 +36,8 @@ extension FBSUserService: UserListProvider {
         }
     }
 
-    func getUsers(reload: Bool = false) -> Observable<[User]> {
-        return networkService
-            .getUsers()
+    func getUsers() -> Observable<[User]> {
+        return networkService.getUsers()
     }
 
     func updateUser(_ user: UserViewModel) {
