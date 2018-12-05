@@ -31,7 +31,8 @@ extension FBSModuleFactory: UserListModuleFactory {
         let networkService = DefaultNetworkService(authService: authService)
         let provider = FBSUserService(networkService: networkService)
         let viewModel = UserListViewModel(userListProvider: provider, userService: provider)
-        let viewController = UserListViewController(viewModel: viewModel)
+        let viewController = UserListViewController()
+        viewController.viewModel = viewModel
         return (viewController, provider)
     }
 

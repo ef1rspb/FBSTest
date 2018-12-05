@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import LeadKit
 import RxSwift
 import TableKit
 
-final class UserListViewController: BaseConfigurableController<UserListViewModel>, UserListView {
+final class UserListViewController: UIViewController, UserListView {
 
     var onLogout: (() -> Void)?
     var onUserSelect: ((UserViewModel) -> Void)?
+
+    var viewModel: UserListViewModel!
 
     private let disposeBag = DisposeBag()
 
@@ -36,7 +37,8 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialLoadView()
+        bindViews()
+        configureBarButtons()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +47,8 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
         loadUserList(reload: false)
         view.backgroundColor = .white
     }
-    override func bindViews() {
+
+    private func bindViews() {
         let refreshControl = UIRefreshControl()
         tableView.refreshControl = refreshControl
         refreshControl.rx
@@ -68,7 +71,7 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
             .disposed(by: disposeBag)
     }
 
-    override func configureBarButtons() {
+    private func configureBarButtons() {
         let logoutButton = UIBarButtonItem(title: "Logout", style: .done, target: nil, action: nil)
         logoutButton.rx.tap
             .subscribe(onNext: { [weak self] in
