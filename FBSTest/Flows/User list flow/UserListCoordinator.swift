@@ -24,7 +24,7 @@ final class UserListCoordinator: BaseCoordinator, UserListCoordinatorOutput {
         usersOutput.onLogout = { [weak self] in
             self?.finishFlow?()
         }
-        router.setRootModule(usersOutput)
+        router.setRootModule(usersOutput, hideBar: false, animated: true)
     }
 
     private func showUserDetail(_ user: UserViewModel, dataProvider: UserListProvider?) {

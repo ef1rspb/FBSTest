@@ -21,7 +21,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
             self?.showLoginView(method: method)
         }
 
-        router.setRootModule(loginOutput, hideBar: true)
+        router.setRootModule(loginOutput, hideBar: true, animated: true)
     }
 
     private func showLoginView(method: LoginMethod) {
