@@ -1,6 +1,6 @@
 final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
 
-    var finishFlow: (() -> Void)?
+    var finishFlow: ((String) -> Void)?
 
     private let factory: AuthModuleFactory
     private let router: Router
@@ -16,10 +16,23 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorOutput {
 
     private func showLogin() {
         let loginOutput = factory.makeLoginOutput()
-        loginOutput.onCompleteAuth = { [weak self] in
-            self?.finishFlow?()
+
+        loginOutput.onLoginAction = { [weak self] method in
+            self?.showLoginView(method: method)
         }
-        router.setRootModule(loginOutput, hideBar: true)
+
+        router.setRootModule(loginOutput, hideBar: true, animated: true)
     }
 
+    private func showLoginView(method: LoginMethod) {
+        switch method {
+        case .github:
+            let output = factory.makeWebViewOutput(mode: .githubAuth)
+
+            output.onCompleteAuth = { [weak self] token in
+                self?.finishFlow?(token)
+            }
+            router.push(output, animated: true)
+        }
+    }
 }

@@ -1,3 +1,4 @@
 protocol LoginView: BaseView {
-    var onCompleteAuth: (() -> Void)? { get set }
+    var onLoginAction: ((LoginMethod) -> Void)? { get set }
+    var onCompleteAuth: ((String) -> Void)? { get set }
 }
