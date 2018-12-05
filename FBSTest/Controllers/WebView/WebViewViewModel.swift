@@ -26,7 +26,7 @@ extension WebViewViewModel {
                 return nil
             }
             urlComponents.queryItems = [
-                URLQueryItem(name: "client_id", value: "20c1ac54fee6308261d2"),
+                URLQueryItem(name: "client_id", value: "20c1ac54fee6308261d2")
             ]
             guard let url = urlComponents.url else {
                 return nil
@@ -53,7 +53,7 @@ extension WebViewViewModel {
             guard let url = urlComponents.url else {
                 return nil
             }
-            
+
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             return request

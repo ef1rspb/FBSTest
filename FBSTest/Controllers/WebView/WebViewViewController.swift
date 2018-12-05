@@ -10,7 +10,10 @@ import UIKit
 import RxSwift
 import WebKit
 
-final class WebViewViewController: UIViewController {
+final class WebViewViewController: UIViewController, LoginView {
+
+    var onLoginAction: ((LoginMethod) -> Void)?
+    var onCompleteAuth: ((String) -> Void)?
 
     var viewModel: WebViewViewModel!
 

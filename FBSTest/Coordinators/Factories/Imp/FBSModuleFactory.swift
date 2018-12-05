@@ -6,6 +6,13 @@ extension FBSModuleFactory: AuthModuleFactory {
         let viewModel = LoginViewModel()
         return LoginViewController(viewModel: viewModel)
     }
+
+    func makeWebViewOutput(mode: WebViewMode) -> LoginView {
+        let viewModel = WebViewViewModel(mode: mode)
+        let viewController = WebViewViewController()
+        viewController.viewModel = viewModel
+        return viewController
+    }
 }
 
 extension FBSModuleFactory: UserListModuleFactory {

@@ -11,7 +11,9 @@ import LeadKit
 import RxSwift
 
 class LoginViewController: BaseConfigurableController<LoginViewModel>, LoginView {
-    var onCompleteAuth: (() -> Void)?
+    var onLoginAction: ((LoginMethod) -> Void)?
+    var onCompleteAuth: ((String) -> Void)?
+
     private let disposeBag = DisposeBag()
 
     private(set) lazy var loginButton: UIButton = {
@@ -43,6 +45,6 @@ class LoginViewController: BaseConfigurableController<LoginViewModel>, LoginView
 extension LoginViewController {
 
     private func login() {
-        onCompleteAuth?()
+        onLoginAction?(.github)
     }
 }
