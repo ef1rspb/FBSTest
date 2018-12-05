@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import LeadKit
 import RxSwift
 import TableKit
 
-final class UserListViewController: BaseConfigurableController<UserListViewModel>, UserListView {
+final class UserListViewController: UIViewController, UserListView {
 
     var onLogout: (() -> Void)?
     var onUserSelect: ((UserViewModel) -> Void)?
+
+    var viewModel: UserListViewModel!
 
     private let disposeBag = DisposeBag()
 
@@ -36,7 +37,8 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialLoadView()
+        bindViews()
+        configureBarButtons()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +47,8 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
         loadUserList(reload: false)
         view.backgroundColor = .white
     }
-    override func bindViews() {
+
+    private func bindViews() {
         let refreshControl = UIRefreshControl()
         tableView.refreshControl = refreshControl
         refreshControl.rx
@@ -68,7 +71,7 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
             .disposed(by: disposeBag)
     }
 
-    override func configureBarButtons() {
+    private func configureBarButtons() {
         let logoutButton = UIBarButtonItem(title: "Logout", style: .done, target: nil, action: nil)
         logoutButton.rx.tap
             .subscribe(onNext: { [weak self] in
@@ -102,7 +105,10 @@ extension UserListViewController {
             .on(.click) { [weak self] (options) in
                 self?.onUserSelect?(options.item.userViewModel)
             } }
-        tableDirector.replace(withRows: rows)
+
+        tableDirector.clear()
+        tableDirector += rows
+        tableDirector.reload()
     }
 
     private func createTableHeaderView(user: User) -> UIView {
@@ -121,11 +127,25 @@ extension UserListViewController {
 
         let image = UIImage.User.avatarPlaceholder
         let avatarImageView = UIImageView(image: image)
+
+        if let url = URL(string: user.avatarUrl) {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    DispatchQueue.main.async {
+                        avatarImageView.image = UIImage(data: data)
+                    }
+                }
+            }
+        }
+
         headerView.addSubview(avatarImageView)
+        let avatarHeight: CGFloat = height - 20
+        avatarImageView.layer.cornerRadius = avatarHeight / 2
+        avatarImageView.clipsToBounds = true
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
         avatarImageView.trailingAnchor.constraint(equalTo: label.leadingAnchor, constant: -15).isActive = true
-        avatarImageView.heightAnchor.constraint(equalToConstant: (height - 10)/2).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: avatarHeight).isActive = true
         avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor).isActive = true
 
         return headerView
