@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 final class WebViewViewModel {
 
@@ -35,28 +36,24 @@ extension WebViewViewModel {
         }
     }
 
-    func nextRequest(path url: String) -> URLRequest? {
-        switch mode {
-        case .githubAuth:
-            guard let code = url.components(separatedBy: "code=").last else {
-                return nil
-            }
-            let urlString = "https://github.com/login/oauth/access_token"
-            guard var urlComponents = URLComponents(string: urlString) else {
-                return nil
-            }
-            urlComponents.queryItems = [
-                URLQueryItem(name: "code", value: code),
-                URLQueryItem(name: "client_secret", value: "2c433b5552c9c51e666d8da801b8b172da6f75f6"),
-                URLQueryItem(name: "client_id", value: "20c1ac54fee6308261d2")
-            ]
-            guard let url = urlComponents.url else {
-                return nil
-            }
+    func authenticateWithTemporaryCode(_ code: String) -> Observable<String?> {
+        let tokenUrl = URL(string: "https://github.com/login/oauth/access_token")!
+        var req = URLRequest(url: tokenUrl)
+        req.httpMethod = "POST"
+        req.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        req.addValue("application/json", forHTTPHeaderField: "Accept")
+        let params = [
+            "client_id": "20c1ac54fee6308261d2",
+            "client_secret": "2c433b5552c9c51e666d8da801b8b172da6f75f6",
+            "code": code
+        ]
+        req.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
 
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            return request
-        }
+        return URLSession.shared.rx
+            .json(request: req)
+            .map { $0 as? [String: Any] }
+            .map { content -> String? in
+                return content?["access_token"] as? String
+            }
     }
 }

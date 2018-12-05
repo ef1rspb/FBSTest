@@ -1,44 +1,29 @@
-private var isAutorized = false
-
-private enum LaunchInstructor {
-    case main, auth
-
-    static func configure(
-        isAutorized: Bool = isAutorized) -> LaunchInstructor {
-        switch isAutorized {
-        case false: return .auth
-        default: return .main
-        }
-    }
-}
-
 final class ApplicationCoordinator: BaseCoordinator {
 
     private let coordinatorFactory: CoordinatorFactory
     private let router: Router
+    private let authService: AuthService
 
-    private var instructor: LaunchInstructor {
-        return LaunchInstructor.configure()
-    }
-
-    init(router: Router, coordinatorFactory: CoordinatorFactory) {
+    init(router: Router, coordinatorFactory: CoordinatorFactory, authService: AuthService) {
         self.router = router
         self.coordinatorFactory = coordinatorFactory
+        self.authService = authService
     }
 
     override func start() {
-        switch instructor {
-        case .auth: runAuthFlow()
-        case .main: runUserListFlow()
+        if !authService.isUserLoggedIn {
+            runAuthFlow()
+        } else {
+            runUserListFlow()
         }
     }
 
     private func runAuthFlow() {
         let coordinator = coordinatorFactory.makeAuthCoordinator(router: router)
         coordinator.finishFlow = { [weak self, weak coordinator] token in
-            isAutorized = true
-            self?.start()
             self?.removeDependency(coordinator)
+            self?.authService.saveSession(authToken: token)
+            self?.start()
         }
         addDependency(coordinator)
         coordinator.start()
@@ -47,9 +32,9 @@ final class ApplicationCoordinator: BaseCoordinator {
     private func runUserListFlow() {
         let coordinator = coordinatorFactory.makeUserListCoordinator(router: router)
         coordinator.finishFlow = { [weak self, weak coordinator] in
-            isAutorized = false
-            self?.start()
             self?.removeDependency(coordinator)
+            self?.authService.logout()
+            self?.start()
         }
         addDependency(coordinator)
         coordinator.start()

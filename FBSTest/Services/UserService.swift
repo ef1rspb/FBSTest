@@ -9,7 +9,7 @@
 import RxSwift
 
 protocol UserService: class {
-    func obtainUser() -> Observable<User>
+    func obtainUser() -> Observable<User?>
 }
 
 final class FBSUserService: UserService {
@@ -21,10 +21,8 @@ final class FBSUserService: UserService {
         self.networkService = networkService
     }
 
-    func obtainUser() -> Observable<User> {
-        let user = User(nickname: "Sasha",
-                        avatarUrl: "https://avatars0.githubusercontent.com/u/1?v=4")
-        return .just(user)
+    func obtainUser() -> Observable<User?> {
+        return networkService.obtainUser()
     }
 }
 
