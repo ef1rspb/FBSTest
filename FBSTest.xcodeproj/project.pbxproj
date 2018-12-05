@@ -44,6 +44,9 @@
 		30628FB621B42A8000999084 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FB521B42A8000999084 /* UIImage+Extensions.swift */; };
 		30628FB921B4469C00999084 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FB821B4469C00999084 /* UserDetailsView.swift */; };
 		306343CF21B5A10B0006AB37 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306343CE21B5A10B0006AB37 /* UserViewModel.swift */; };
+		306343D221B7B3DC0006AB37 /* WebViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306343D121B7B3DC0006AB37 /* WebViewViewModel.swift */; };
+		306343D421B7B3E70006AB37 /* WebViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306343D321B7B3E70006AB37 /* WebViewMode.swift */; };
+		306343D621B7B3FC0006AB37 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306343D521B7B3FC0006AB37 /* WebViewViewController.swift */; };
 		30862CF421B516EB0083B3CE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30862CF321B516EB0083B3CE /* NetworkService.swift */; };
 		3538003F6124C1EC9FCD463B /* Pods_FBSTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48547EE9AF4627C3995EA6FE /* Pods_FBSTestUITests.framework */; };
 		601F71B671B235CC5C2D6B41 /* Pods_FBSTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7088E108E4014379F58CB45D /* Pods_FBSTestTests.framework */; };
@@ -111,6 +114,9 @@
 		30628FB521B42A8000999084 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		30628FB821B4469C00999084 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		306343CE21B5A10B0006AB37 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		306343D121B7B3DC0006AB37 /* WebViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewModel.swift; sourceTree = "<group>"; };
+		306343D321B7B3E70006AB37 /* WebViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewMode.swift; sourceTree = "<group>"; };
+		306343D521B7B3FC0006AB37 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		30862CF321B516EB0083B3CE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		48547EE9AF4627C3995EA6FE /* Pods_FBSTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBSTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52549AB7DBEA579FE168E437 /* Pods-FBSTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBSTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBSTest/Pods-FBSTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 				302C6F0721B2B4BF00DB89A1 /* Login */,
 				30628FB021B422C200999084 /* User details */,
 				30628F9B21B3DF9F00999084 /* User list */,
+				306343D021B7B3BF0006AB37 /* WebView */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -422,6 +429,16 @@
 				30628FB821B4469C00999084 /* UserDetailsView.swift */,
 			);
 			path = "User details flow";
+			sourceTree = "<group>";
+		};
+		306343D021B7B3BF0006AB37 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				306343D321B7B3E70006AB37 /* WebViewMode.swift */,
+				306343D121B7B3DC0006AB37 /* WebViewViewModel.swift */,
+				306343D521B7B3FC0006AB37 /* WebViewViewController.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		C942E7714EBA32529756956B /* Frameworks */ = {
@@ -782,6 +799,7 @@
 			files = (
 				30628FA621B3E50D00999084 /* UserListCell.swift in Sources */,
 				30628FB921B4469C00999084 /* UserDetailsView.swift in Sources */,
+				306343D421B7B3E70006AB37 /* WebViewMode.swift in Sources */,
 				302C6EF421B2A4AE00DB89A1 /* AuthCoordinator.swift in Sources */,
 				302C6EE121B2A12200DB89A1 /* Router.swift in Sources */,
 				302C6F0D21B2B97500DB89A1 /* UserService.swift in Sources */,
@@ -790,6 +808,7 @@
 				302C6EE721B2A1B900DB89A1 /* Coordinator.swift in Sources */,
 				302C6F0421B2B23A00DB89A1 /* FBSCoordinatorFactory.swift in Sources */,
 				30628FA321B3E4BF00999084 /* UserListCellViewModel.swift in Sources */,
+				306343D221B7B3DC0006AB37 /* WebViewViewModel.swift in Sources */,
 				30628F9821B3DDE200999084 /* UserListView.swift in Sources */,
 				30628F9421B3DA4E00999084 /* UserListCoordinator.swift in Sources */,
 				30628F9F21B3E02F00999084 /* UserListViewModel.swift in Sources */,
@@ -798,6 +817,7 @@
 				302C6F0621B2B27B00DB89A1 /* FBSModuleFactory.swift in Sources */,
 				30628FB621B42A8000999084 /* UIImage+Extensions.swift in Sources */,
 				30628F9621B3DD9D00999084 /* UserListModuleFactory.swift in Sources */,
+				306343D621B7B3FC0006AB37 /* WebViewViewController.swift in Sources */,
 				302C6EEB21B2A21B00DB89A1 /* BaseCoordinator.swift in Sources */,
 				30628FAD21B3FA8D00999084 /* UserListCoordinatorOutput.swift in Sources */,
 				302C6F0B21B2B56E00DB89A1 /* LoginViewModel.swift in Sources */,
