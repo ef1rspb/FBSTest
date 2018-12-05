@@ -18,6 +18,7 @@ final class WebViewViewController: UIViewController, LoginView {
     var viewModel: WebViewViewModel!
 
     private var webView: WKWebView!
+    private let disposeBag = DisposeBag()
 
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
@@ -32,6 +33,7 @@ final class WebViewViewController: UIViewController, LoginView {
         if let request = viewModel.request {
             webView.load(request)
         }
+        navigationController?.isNavigationBarHidden = false
     }
 
 }
@@ -39,11 +41,20 @@ final class WebViewViewController: UIViewController, LoginView {
 extension WebViewViewController: WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        guard let redirectUrlString = webView.url?.absoluteString else {
+        guard let givenUrl = webView.url?.absoluteString else {
             return
         }
-        if let request = viewModel.nextRequest(path: redirectUrlString) {
-            webView.load(request)
+        
+        if givenUrl.contains("code="), let code = givenUrl.components(separatedBy: "code=").last {
+            viewModel
+                .authenticateWithTemporaryCode(code)
+                .observeOn(MainScheduler.instance)
+                .subscribe(onNext: { [weak self] token in
+                    if let token = token {
+                        self?.onCompleteAuth?(token)
+                    }
+                })
+                .disposed(by: disposeBag)
         }
     }
 }

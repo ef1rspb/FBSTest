@@ -33,7 +33,7 @@ extension UserListViewModel {
             .map { $0.map { UserListCellViewModel(userViewModel: $0) } }
     }
 
-    var userObservable: Observable<User> {
+    var userObservable: Observable<User?> {
         return userService.obtainUser()
     }
 }

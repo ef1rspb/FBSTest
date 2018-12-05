@@ -21,7 +21,7 @@ class LoginViewController: BaseConfigurableController<LoginViewModel>, LoginView
         button.setTitle("Login", for: .normal)
         button.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.login()
+                self?.onLoginAction?(.github)
             })
             .disposed(by: disposeBag)
         return button
@@ -32,6 +32,12 @@ class LoginViewController: BaseConfigurableController<LoginViewModel>, LoginView
         initialLoadView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.isNavigationBarHidden = true
+    }
+
     override func addViews() {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -39,12 +45,5 @@ class LoginViewController: BaseConfigurableController<LoginViewModel>, LoginView
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    }
-}
-
-extension LoginViewController {
-
-    private func login() {
-        onLoginAction?(.github)
     }
 }
