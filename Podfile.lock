@@ -1,0 +1,41 @@
+PODS:
+  - KeychainAccess (3.1.2)
+  - Quick (1.3.2)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - SwiftLint (0.28.2)
+  - TableKit (2.8.0)
+
+DEPENDENCIES:
+  - KeychainAccess
+  - Quick
+  - RxCocoa
+  - RxSwift
+  - SwiftLint
+  - TableKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - KeychainAccess
+    - Quick
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
+    - SwiftLint
+    - TableKit
+
+SPEC CHECKSUMS:
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  SwiftLint: f1629ae733b64e9cad20052de01d1debd5b640e7
+  TableKit: d635663343d00e209f258e35d4ee0072ad1beb1a
+
+PODFILE CHECKSUM: 43afe45e8ac2d32161c54318f443bae8f4e670c7
+
+COCOAPODS: 1.5.3
