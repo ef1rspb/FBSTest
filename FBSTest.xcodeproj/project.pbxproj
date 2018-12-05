@@ -48,6 +48,8 @@
 		306343D421B7B3E70006AB37 /* WebViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306343D321B7B3E70006AB37 /* WebViewMode.swift */; };
 		306343D621B7B3FC0006AB37 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306343D521B7B3FC0006AB37 /* WebViewViewController.swift */; };
 		306343D821B7C45D0006AB37 /* LoginMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306343D721B7C45D0006AB37 /* LoginMethod.swift */; };
+		306343DA21B7CEE20006AB37 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306343D921B7CEE20006AB37 /* AuthService.swift */; };
+		306343DC21B7D20E0006AB37 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306343DB21B7D20E0006AB37 /* KeychainService.swift */; };
 		30862CF421B516EB0083B3CE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30862CF321B516EB0083B3CE /* NetworkService.swift */; };
 		3538003F6124C1EC9FCD463B /* Pods_FBSTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48547EE9AF4627C3995EA6FE /* Pods_FBSTestUITests.framework */; };
 		601F71B671B235CC5C2D6B41 /* Pods_FBSTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7088E108E4014379F58CB45D /* Pods_FBSTestTests.framework */; };
@@ -119,6 +121,8 @@
 		306343D321B7B3E70006AB37 /* WebViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewMode.swift; sourceTree = "<group>"; };
 		306343D521B7B3FC0006AB37 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		306343D721B7C45D0006AB37 /* LoginMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMethod.swift; sourceTree = "<group>"; };
+		306343D921B7CEE20006AB37 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		306343DB21B7D20E0006AB37 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		30862CF321B516EB0083B3CE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		48547EE9AF4627C3995EA6FE /* Pods_FBSTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBSTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52549AB7DBEA579FE168E437 /* Pods-FBSTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBSTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBSTest/Pods-FBSTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 			children = (
 				302C6F0C21B2B97500DB89A1 /* UserService.swift */,
 				30862CF321B516EB0083B3CE /* NetworkService.swift */,
+				306343D921B7CEE20006AB37 /* AuthService.swift */,
+				306343DB21B7D20E0006AB37 /* KeychainService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -806,12 +812,14 @@
 				302C6EF421B2A4AE00DB89A1 /* AuthCoordinator.swift in Sources */,
 				302C6EE121B2A12200DB89A1 /* Router.swift in Sources */,
 				302C6F0D21B2B97500DB89A1 /* UserService.swift in Sources */,
+				306343DA21B7CEE20006AB37 /* AuthService.swift in Sources */,
 				302C6EF921B2A6E700DB89A1 /* AuthModuleFactory.swift in Sources */,
 				302C6EE521B2A18900DB89A1 /* Presentable.swift in Sources */,
 				302C6EE721B2A1B900DB89A1 /* Coordinator.swift in Sources */,
 				302C6F0421B2B23A00DB89A1 /* FBSCoordinatorFactory.swift in Sources */,
 				30628FA321B3E4BF00999084 /* UserListCellViewModel.swift in Sources */,
 				306343D221B7B3DC0006AB37 /* WebViewViewModel.swift in Sources */,
+				306343DC21B7D20E0006AB37 /* KeychainService.swift in Sources */,
 				30628F9821B3DDE200999084 /* UserListView.swift in Sources */,
 				30628F9421B3DA4E00999084 /* UserListCoordinator.swift in Sources */,
 				30628F9F21B3E02F00999084 /* UserListViewModel.swift in Sources */,
