@@ -121,11 +121,25 @@ extension UserListViewController {
 
         let image = UIImage.User.avatarPlaceholder
         let avatarImageView = UIImageView(image: image)
+
+        if let url = URL(string: user.avatarUrl) {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    DispatchQueue.main.async {
+                        avatarImageView.image = UIImage(data: data)
+                    }
+                }
+            }
+        }
+
         headerView.addSubview(avatarImageView)
+        let avatarHeight: CGFloat = height - 20
+        avatarImageView.layer.cornerRadius = avatarHeight / 2
+        avatarImageView.clipsToBounds = true
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
         avatarImageView.trailingAnchor.constraint(equalTo: label.leadingAnchor, constant: -15).isActive = true
-        avatarImageView.heightAnchor.constraint(equalToConstant: (height - 10)/2).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: avatarHeight).isActive = true
         avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor).isActive = true
 
         return headerView
