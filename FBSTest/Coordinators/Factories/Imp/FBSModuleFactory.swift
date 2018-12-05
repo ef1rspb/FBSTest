@@ -6,6 +6,13 @@ extension FBSModuleFactory: AuthModuleFactory {
         let viewModel = LoginViewModel()
         return LoginViewController(viewModel: viewModel)
     }
+
+    func makeWebViewOutput(mode: WebViewMode) -> LoginView {
+        let viewModel = WebViewViewModel(mode: mode)
+        let viewController = WebViewViewController()
+        viewController.viewModel = viewModel
+        return viewController
+    }
 }
 
 extension FBSModuleFactory: UserListModuleFactory {
@@ -17,7 +24,8 @@ extension FBSModuleFactory: UserListModuleFactory {
     }
 
     func makeUsersOutput() -> (UserListView, UserListProvider) {
-        let networkService = DefaultNetorkService()
+        let authService = FBSAuthService()
+        let networkService = DefaultNetworkService(authService: authService)
         let provider = FBSUserService(networkService: networkService)
         let viewModel = UserListViewModel(userListProvider: provider, userService: provider)
         let viewController = UserListViewController(viewModel: viewModel)

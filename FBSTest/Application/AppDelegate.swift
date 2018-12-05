@@ -31,7 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func makeCoordinator() -> Coordinator {
         return ApplicationCoordinator(
             router: FBSRouter(rootController: self.rootController),
-            coordinatorFactory: FBSCoordinatorFactory()
+            coordinatorFactory: FBSCoordinatorFactory(),
+            authService: FBSAuthService()
         )
     }
 }

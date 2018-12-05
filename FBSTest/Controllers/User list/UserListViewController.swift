@@ -61,7 +61,9 @@ final class UserListViewController: BaseConfigurableController<UserListViewModel
             // simulate network request delay
             .delay(1.5, scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
-                self?.insertTableHeaderView(user: $0)
+                if let user = $0 {
+                    self?.insertTableHeaderView(user: user)
+                }
             })
             .disposed(by: disposeBag)
     }

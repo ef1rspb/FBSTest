@@ -66,9 +66,9 @@ final class FBSRouter: NSObject, Router {
         setRootModule(module, hideBar: false)
     }
 
-    func setRootModule(_ module: Presentable?, hideBar: Bool) {
+    func setRootModule(_ module: Presentable?, hideBar: Bool, animated: Bool = false) {
         guard let controller = module?.toPresent() else { return }
-        rootController?.setViewControllers([controller], animated: false)
+        rootController?.setViewControllers([controller], animated: animated)
         rootController?.isNavigationBarHidden = hideBar
     }
 
