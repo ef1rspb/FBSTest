@@ -105,7 +105,10 @@ extension UserListViewController {
             .on(.click) { [weak self] (options) in
                 self?.onUserSelect?(options.item.userViewModel)
             } }
-        tableDirector.replace(withRows: rows)
+
+        tableDirector.clear()
+        tableDirector += rows
+        tableDirector.reload()
     }
 
     private func createTableHeaderView(user: User) -> UIView {

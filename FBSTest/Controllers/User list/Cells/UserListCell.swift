@@ -8,11 +8,10 @@
 
 import UIKit
 import TableKit
-import LeadKit
 import RxSwift
 import RxCocoa
 
-final class UserListCell: SeparatorCell {
+final class UserListCell: UITableViewCell {
 
     private var disposeBag = DisposeBag()
 
