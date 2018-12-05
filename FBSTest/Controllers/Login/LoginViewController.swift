@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import LeadKit
 import RxSwift
 
-class LoginViewController: BaseConfigurableController<LoginViewModel>, LoginView {
+final class LoginViewController: UIViewController, LoginView {
     var onLoginAction: ((LoginMethod) -> Void)?
     var onCompleteAuth: ((String) -> Void)?
 
     private let disposeBag = DisposeBag()
+    var viewModel: LoginViewModel!
 
     private(set) lazy var loginButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -29,7 +29,7 @@ class LoginViewController: BaseConfigurableController<LoginViewModel>, LoginView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialLoadView()
+        addViews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +38,7 @@ class LoginViewController: BaseConfigurableController<LoginViewModel>, LoginView
         navigationController?.isNavigationBarHidden = true
     }
 
-    override func addViews() {
+    private func addViews() {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.widthAnchor.constraint(equalToConstant: 100).isActive = true

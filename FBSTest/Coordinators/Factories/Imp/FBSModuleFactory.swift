@@ -4,7 +4,9 @@ extension FBSModuleFactory: AuthModuleFactory {
 
     func makeLoginOutput() -> LoginView {
         let viewModel = LoginViewModel()
-        return LoginViewController(viewModel: viewModel)
+        let viewController = LoginViewController()
+        viewController.viewModel = viewModel
+        return viewController
     }
 
     func makeWebViewOutput(mode: WebViewMode) -> LoginView {
