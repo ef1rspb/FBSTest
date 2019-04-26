@@ -22,7 +22,6 @@
 		302C6F0421B2B23A00DB89A1 /* FBSCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0321B2B23A00DB89A1 /* FBSCoordinatorFactory.swift */; };
 		302C6F0621B2B27B00DB89A1 /* FBSModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0521B2B27B00DB89A1 /* FBSModuleFactory.swift */; };
 		302C6F0921B2B55400DB89A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0821B2B55400DB89A1 /* LoginViewController.swift */; };
-		302C6F0B21B2B56E00DB89A1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0A21B2B56E00DB89A1 /* LoginViewModel.swift */; };
 		302C6F0D21B2B97500DB89A1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0C21B2B97500DB89A1 /* UserService.swift */; };
 		302C6F0F21B2B9C100DB89A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0E21B2B9C100DB89A1 /* User.swift */; };
 		303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E826F21B2873300A8A7FA /* AppDelegate.swift */; };
@@ -89,7 +88,6 @@
 		302C6F0321B2B23A00DB89A1 /* FBSCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSCoordinatorFactory.swift; sourceTree = "<group>"; };
 		302C6F0521B2B27B00DB89A1 /* FBSModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBSModuleFactory.swift; sourceTree = "<group>"; };
 		302C6F0821B2B55400DB89A1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		302C6F0A21B2B56E00DB89A1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		302C6F0C21B2B97500DB89A1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		302C6F0E21B2B9C100DB89A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		303E826C21B2873300A8A7FA /* FBSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -321,7 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				302C6F0821B2B55400DB89A1 /* LoginViewController.swift */,
-				302C6F0A21B2B56E00DB89A1 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -761,7 +758,6 @@
 				306343D621B7B3FC0006AB37 /* WebViewViewController.swift in Sources */,
 				302C6EEB21B2A21B00DB89A1 /* BaseCoordinator.swift in Sources */,
 				30628FAD21B3FA8D00999084 /* UserListCoordinatorOutput.swift in Sources */,
-				302C6F0B21B2B56E00DB89A1 /* LoginViewModel.swift in Sources */,
 				302C6EE321B2A13500DB89A1 /* FBSRouter.swift in Sources */,
 				30862CF421B516EB0083B3CE /* NetworkService.swift in Sources */,
 				302C6EEF21B2A3F300DB89A1 /* LoginView.swift in Sources */,
