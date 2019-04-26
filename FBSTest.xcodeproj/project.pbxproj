@@ -618,7 +618,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FBSTestTests/Pods-FBSTestTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FBSTestTests/Pods-FBSTestTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -629,7 +629,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FBSTestTests/Pods-FBSTestTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FBSTestTests/Pods-FBSTestTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8E774F2FDEA85C7740935794 /* [CP] Check Pods Manifest.lock */ = {
@@ -684,7 +684,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FBSTest/Pods-FBSTest-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FBSTest/Pods-FBSTest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -703,7 +703,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FBSTest/Pods-FBSTest-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FBSTest/Pods-FBSTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EBB5B925986464E8927736AE /* [CP] Check Pods Manifest.lock */ = {
