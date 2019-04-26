@@ -5,7 +5,6 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'FBSTest' do
-  pod 'TableKit'
   pod 'SwiftLint'
   pod 'RxSwift'
   pod 'RxCocoa'

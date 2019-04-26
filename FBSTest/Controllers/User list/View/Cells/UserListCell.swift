@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import TableKit
 import RxSwift
 import RxCocoa
 
 final class UserListCell: UITableViewCell {
 
   typealias CellData = (title: String, userViewModel: UserViewModel)
-  
+
     private var disposeBag = DisposeBag()
 
     private lazy var titleLabel: UILabel = {
@@ -46,19 +45,14 @@ final class UserListCell: UITableViewCell {
         disposeBag = DisposeBag()
     }
 
-}
+  func configure(with data: CellData) {
+    titleLabel.text = data.title
+    data.userViewModel
+      .imageDriver
+      .drive(onNext: { [weak self] in
+        self?.avatarImageView.image = $0
+      })
+      .disposed(by: disposeBag)
+  }
 
-extension UserListCell: ConfigurableCell {
-
-    static let defaultHeight: CGFloat? = 100
-
-    func configure(with data: CellData) {
-        titleLabel.text = data.title
-        data.userViewModel
-            .imageDriver
-            .drive(onNext: { [weak self] in
-                self?.avatarImageView.image = $0
-            })
-            .disposed(by: disposeBag)
-    }
 }
