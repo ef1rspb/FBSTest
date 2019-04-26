@@ -14,36 +14,68 @@ final class UserListCell: UITableViewCell {
 
   typealias CellData = (title: String, userViewModel: UserViewModel)
 
-    private var disposeBag = DisposeBag()
+  private var disposeBag = DisposeBag()
 
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        contentView.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10).isActive = true
-        label.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor).isActive = true
-        return label
-    }()
+  private enum Constants {
+    static let avatarSize: CGFloat = 40
+  }
 
-    private lazy var avatarImageView: UIImageView = {
-        let imageView = UIImageView(image: nil)
-        let width: CGFloat = 80.0
-        imageView.layer.cornerRadius = width / 2
-        imageView.clipsToBounds = true
-        contentView.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: width).isActive = true
-        return imageView
-    }()
+  private let titleLabel: UILabel = {
+    let label = UILabel()
+    return label
+  }()
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
+  private let avatarImageView: UIImageView = {
+    let imageView = UIImageView(image: UIImage.User.avatarPlaceholder)
+    imageView.layer.cornerRadius = Constants.avatarSize / 2
+    imageView.clipsToBounds = true
+    return imageView
+  }()
 
-        disposeBag = DisposeBag()
-    }
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+    setupLayout()
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  override func prepareForReuse() {
+    super.prepareForReuse()
+
+    disposeBag = DisposeBag()
+  }
+
+  private func setupLayout() {
+    setupAvatarImage()
+    setupTitleLabel()
+  }
+
+  private func setupTitleLabel() {
+    contentView.addSubview(titleLabel)
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      titleLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
+      titleLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor)
+    ])
+  }
+
+  private func setupAvatarImage() {
+    contentView.addSubview(avatarImageView)
+    avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      avatarImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+      avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: layoutMargins.left),
+      avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: layoutMargins.top),
+      avatarImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -layoutMargins.bottom),
+      avatarImageView.widthAnchor.constraint(equalToConstant: Constants.avatarSize),
+      avatarImageView.heightAnchor.constraint(equalToConstant: Constants.avatarSize)
+    ])
+  }
 
   func configure(with data: CellData) {
     titleLabel.text = data.title
@@ -54,5 +86,4 @@ final class UserListCell: UITableViewCell {
       })
       .disposed(by: disposeBag)
   }
-
 }
