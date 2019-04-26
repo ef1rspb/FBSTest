@@ -26,7 +26,7 @@ extension FBSModuleFactory: UserListModuleFactory {
 
     func makeUsersOutput() -> (UserListView, UserListProvider) {
         let authService = FBSAuthService()
-        let networkService = DefaultNetworkService(authService: authService)
+        let networkService = NetworkServiceImpl(authService: authService)
         let provider = FBSUserService(networkService: networkService)
         let viewModel = UserListViewModelImpl(userListProvider: provider, userService: provider)
         let viewController = UserListViewController(style: .grouped)

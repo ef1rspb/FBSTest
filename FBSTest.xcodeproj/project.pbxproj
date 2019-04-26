@@ -27,6 +27,8 @@
 		3030C1E2227324820025FC62 /* UserListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030C1E1227324820025FC62 /* UserListHeaderView.swift */; };
 		3030C1E422732A310025FC62 /* UITableView+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030C1E322732A310025FC62 /* UITableView+Reuse.swift */; };
 		3030C1E82273360C0025FC62 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030C1E72273360C0025FC62 /* UIImageView+Extensions.swift */; };
+		3030C1EB227353B30025FC62 /* ApiTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030C1EA227353B30025FC62 /* ApiTarget.swift */; };
+		3030C1EF2273541F0025FC62 /* GithubUserTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030C1EE2273541F0025FC62 /* GithubUserTarget.swift */; };
 		303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E826F21B2873300A8A7FA /* AppDelegate.swift */; };
 		303E827721B2873400A8A7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303E827621B2873400A8A7FA /* Assets.xcassets */; };
 		303E827A21B2873400A8A7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 303E827821B2873400A8A7FA /* LaunchScreen.storyboard */; };
@@ -95,6 +97,8 @@
 		3030C1E1227324820025FC62 /* UserListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListHeaderView.swift; sourceTree = "<group>"; };
 		3030C1E322732A310025FC62 /* UITableView+Reuse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuse.swift"; sourceTree = "<group>"; };
 		3030C1E72273360C0025FC62 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		3030C1EA227353B30025FC62 /* ApiTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTarget.swift; sourceTree = "<group>"; };
+		3030C1EE2273541F0025FC62 /* GithubUserTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUserTarget.swift; sourceTree = "<group>"; };
 		303E826C21B2873300A8A7FA /* FBSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		303E826F21B2873300A8A7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		303E827621B2873400A8A7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,8 +185,8 @@
 		302C6ED521B2939400DB89A1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				302C6F0C21B2B97500DB89A1 /* UserService.swift */,
-				30862CF321B516EB0083B3CE /* NetworkService.swift */,
+				3030C1ED2273540C0025FC62 /* UserService */,
+				3030C1E92273539B0025FC62 /* NetworkService */,
 				306343D921B7CEE20006AB37 /* AuthService.swift */,
 				306343DB21B7D20E0006AB37 /* KeychainService.swift */,
 			);
@@ -353,6 +357,24 @@
 				30628F9C21B3DFD700999084 /* UserListViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3030C1E92273539B0025FC62 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				30862CF321B516EB0083B3CE /* NetworkService.swift */,
+				3030C1EA227353B30025FC62 /* ApiTarget.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		3030C1ED2273540C0025FC62 /* UserService */ = {
+			isa = PBXGroup;
+			children = (
+				302C6F0C21B2B97500DB89A1 /* UserService.swift */,
+				3030C1EE2273541F0025FC62 /* GithubUserTarget.swift */,
+			);
+			path = UserService;
 			sourceTree = "<group>";
 		};
 		303E826321B2873200A8A7FA = {
@@ -757,6 +779,7 @@
 				3030C1E2227324820025FC62 /* UserListHeaderView.swift in Sources */,
 				306343D421B7B3E70006AB37 /* WebViewMode.swift in Sources */,
 				302C6EF421B2A4AE00DB89A1 /* AuthCoordinator.swift in Sources */,
+				3030C1EB227353B30025FC62 /* ApiTarget.swift in Sources */,
 				302C6EE121B2A12200DB89A1 /* Router.swift in Sources */,
 				302C6F0D21B2B97500DB89A1 /* UserService.swift in Sources */,
 				306343DA21B7CEE20006AB37 /* AuthService.swift in Sources */,
@@ -771,6 +794,7 @@
 				30628F9F21B3E02F00999084 /* UserListViewModel.swift in Sources */,
 				302C6EE921B2A1ED00DB89A1 /* BaseView.swift in Sources */,
 				302C6EF221B2A48F00DB89A1 /* AuthCoordinatorOutput.swift in Sources */,
+				3030C1EF2273541F0025FC62 /* GithubUserTarget.swift in Sources */,
 				302C6F0621B2B27B00DB89A1 /* FBSModuleFactory.swift in Sources */,
 				306343D821B7C45D0006AB37 /* LoginMethod.swift in Sources */,
 				30628FB621B42A8000999084 /* UIImage+Extensions.swift in Sources */,

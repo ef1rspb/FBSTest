@@ -9,21 +9,22 @@
 import RxSwift
 
 protocol UserService: class {
-    func obtainUser() -> Observable<User?>
+
+  func obtainUser() -> Observable<User?>
 }
 
 final class FBSUserService: UserService {
 
-    private let networkService: NetworkService
-    private var usersCache: [String: Data] = [:]
+  private let networkService: NetworkService
+  private var usersCache: [String: Data] = [:]
 
-    init(networkService: NetworkService) {
-        self.networkService = networkService
-    }
+  init(networkService: NetworkService) {
+    self.networkService = networkService
+  }
 
-    func obtainUser() -> Observable<User?> {
-        return networkService.obtainUser()
-    }
+  func obtainUser() -> Observable<User?> {
+    return networkService.makeRequest(to: GithubUserTarget.currentUserProfile)
+  }
 }
 
 extension FBSUserService: UserListProvider {
@@ -32,12 +33,12 @@ extension FBSUserService: UserListProvider {
         if let data = usersCache[user.nickname] {
             return .just(data)
         } else {
-            return networkService.loadImage(url: user.avatarUrl)
+            return .just(Data())//networkService.loadImage(url: user.avatarUrl)
         }
     }
 
     func getUsers() -> Observable<[User]> {
-        return networkService.getUsers()
+      return networkService.makeRequest(to: GithubUserTarget.userList)
     }
 
     func updateUser(_ user: UserViewModel) {
