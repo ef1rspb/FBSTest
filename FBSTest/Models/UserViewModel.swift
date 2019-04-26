@@ -17,11 +17,11 @@ final class UserViewModel {
     private let imageSubject = BehaviorRelay<Data?>(value: nil)
     private let disposeBag = DisposeBag()
 
-    init(user: User, imageObservable: Observable<Data>) {
+    init(user: User) { //, imageObservable: Observable<Data>
         self.user = user
-        imageObservable
-            .bind(to: imageSubject)
-            .disposed(by: disposeBag)
+//        imageObservable
+//            .bind(to: imageSubject)
+//            .disposed(by: disposeBag)
     }
 
     func updateImage(data: Data) {

@@ -13,6 +13,8 @@ import RxCocoa
 
 final class UserListCell: UITableViewCell {
 
+  typealias CellData = (title: String, userViewModel: UserViewModel)
+  
     private var disposeBag = DisposeBag()
 
     private lazy var titleLabel: UILabel = {
@@ -50,9 +52,9 @@ extension UserListCell: ConfigurableCell {
 
     static let defaultHeight: CGFloat? = 100
 
-    func configure(with viewModel: UserListCellViewModel) {
-        titleLabel.text = viewModel.title
-        viewModel.userViewModel
+    func configure(with data: CellData) {
+        titleLabel.text = data.title
+        data.userViewModel
             .imageDriver
             .drive(onNext: { [weak self] in
                 self?.avatarImageView.image = $0

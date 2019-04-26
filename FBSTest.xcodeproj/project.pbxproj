@@ -24,6 +24,9 @@
 		302C6F0921B2B55400DB89A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0821B2B55400DB89A1 /* LoginViewController.swift */; };
 		302C6F0D21B2B97500DB89A1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0C21B2B97500DB89A1 /* UserService.swift */; };
 		302C6F0F21B2B9C100DB89A1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302C6F0E21B2B9C100DB89A1 /* User.swift */; };
+		3030C1E2227324820025FC62 /* UserListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030C1E1227324820025FC62 /* UserListHeaderView.swift */; };
+		3030C1E422732A310025FC62 /* UITableView+Reuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030C1E322732A310025FC62 /* UITableView+Reuse.swift */; };
+		3030C1E82273360C0025FC62 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3030C1E72273360C0025FC62 /* UIImageView+Extensions.swift */; };
 		303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E826F21B2873300A8A7FA /* AppDelegate.swift */; };
 		303E827721B2873400A8A7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303E827621B2873400A8A7FA /* Assets.xcassets */; };
 		303E827A21B2873400A8A7FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 303E827821B2873400A8A7FA /* LaunchScreen.storyboard */; };
@@ -35,7 +38,6 @@
 		30628F9D21B3DFD700999084 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628F9C21B3DFD700999084 /* UserListViewController.swift */; };
 		30628F9F21B3E02F00999084 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628F9E21B3E02F00999084 /* UserListViewModel.swift */; };
 		30628FA121B3E3ED00999084 /* UserListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FA021B3E3ED00999084 /* UserListProvider.swift */; };
-		30628FA321B3E4BF00999084 /* UserListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FA221B3E4BF00999084 /* UserListCellViewModel.swift */; };
 		30628FA621B3E50D00999084 /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FA521B3E50D00999084 /* UserListCell.swift */; };
 		30628FAD21B3FA8D00999084 /* UserListCoordinatorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FAC21B3FA8D00999084 /* UserListCoordinatorOutput.swift */; };
 		30628FB221B422E700999084 /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30628FB121B422E700999084 /* UserDetailsViewModel.swift */; };
@@ -90,6 +92,9 @@
 		302C6F0821B2B55400DB89A1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		302C6F0C21B2B97500DB89A1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		302C6F0E21B2B9C100DB89A1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3030C1E1227324820025FC62 /* UserListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListHeaderView.swift; sourceTree = "<group>"; };
+		3030C1E322732A310025FC62 /* UITableView+Reuse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reuse.swift"; sourceTree = "<group>"; };
+		3030C1E72273360C0025FC62 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		303E826C21B2873300A8A7FA /* FBSTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBSTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		303E826F21B2873300A8A7FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		303E827621B2873400A8A7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,7 +112,6 @@
 		30628F9C21B3DFD700999084 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		30628F9E21B3E02F00999084 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		30628FA021B3E3ED00999084 /* UserListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListProvider.swift; sourceTree = "<group>"; };
-		30628FA221B3E4BF00999084 /* UserListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCellViewModel.swift; sourceTree = "<group>"; };
 		30628FA521B3E50D00999084 /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
 		30628FAC21B3FA8D00999084 /* UserListCoordinatorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCoordinatorOutput.swift; sourceTree = "<group>"; };
 		30628FB121B422E700999084 /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -235,6 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				30628FB521B42A8000999084 /* UIImage+Extensions.swift */,
+				3030C1E322732A310025FC62 /* UITableView+Reuse.swift */,
+				3030C1E72273360C0025FC62 /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -323,6 +329,32 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		3030C1DE227324470025FC62 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30628FA421B3E4CE00999084 /* Cells */,
+				3030C1E1227324820025FC62 /* UserListHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3030C1DF2273244E0025FC62 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				30628F9E21B3E02F00999084 /* UserListViewModel.swift */,
+				30628FA021B3E3ED00999084 /* UserListProvider.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3030C1E0227324550025FC62 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30628F9C21B3DFD700999084 /* UserListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		303E826321B2873200A8A7FA = {
 			isa = PBXGroup;
 			children = (
@@ -395,10 +427,9 @@
 		30628F9B21B3DF9F00999084 /* User list */ = {
 			isa = PBXGroup;
 			children = (
-				30628FA421B3E4CE00999084 /* Cells */,
-				30628FA721B3E58D00999084 /* Protocols */,
-				30628F9C21B3DFD700999084 /* UserListViewController.swift */,
-				30628F9E21B3E02F00999084 /* UserListViewModel.swift */,
+				3030C1E0227324550025FC62 /* ViewController */,
+				3030C1DF2273244E0025FC62 /* ViewModel */,
+				3030C1DE227324470025FC62 /* View */,
 			);
 			path = "User list";
 			sourceTree = "<group>";
@@ -406,18 +437,9 @@
 		30628FA421B3E4CE00999084 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				30628FA221B3E4BF00999084 /* UserListCellViewModel.swift */,
 				30628FA521B3E50D00999084 /* UserListCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		30628FA721B3E58D00999084 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				30628FA021B3E3ED00999084 /* UserListProvider.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		30628FB021B422C200999084 /* User details */ = {
@@ -734,6 +756,7 @@
 			files = (
 				30628FA621B3E50D00999084 /* UserListCell.swift in Sources */,
 				30628FB921B4469C00999084 /* UserDetailsView.swift in Sources */,
+				3030C1E2227324820025FC62 /* UserListHeaderView.swift in Sources */,
 				306343D421B7B3E70006AB37 /* WebViewMode.swift in Sources */,
 				302C6EF421B2A4AE00DB89A1 /* AuthCoordinator.swift in Sources */,
 				302C6EE121B2A12200DB89A1 /* Router.swift in Sources */,
@@ -743,7 +766,6 @@
 				302C6EE521B2A18900DB89A1 /* Presentable.swift in Sources */,
 				302C6EE721B2A1B900DB89A1 /* Coordinator.swift in Sources */,
 				302C6F0421B2B23A00DB89A1 /* FBSCoordinatorFactory.swift in Sources */,
-				30628FA321B3E4BF00999084 /* UserListCellViewModel.swift in Sources */,
 				306343D221B7B3DC0006AB37 /* WebViewViewModel.swift in Sources */,
 				306343DC21B7D20E0006AB37 /* KeychainService.swift in Sources */,
 				30628F9821B3DDE200999084 /* UserListView.swift in Sources */,
@@ -755,6 +777,7 @@
 				306343D821B7C45D0006AB37 /* LoginMethod.swift in Sources */,
 				30628FB621B42A8000999084 /* UIImage+Extensions.swift in Sources */,
 				30628F9621B3DD9D00999084 /* UserListModuleFactory.swift in Sources */,
+				3030C1E82273360C0025FC62 /* UIImageView+Extensions.swift in Sources */,
 				306343D621B7B3FC0006AB37 /* WebViewViewController.swift in Sources */,
 				302C6EEB21B2A21B00DB89A1 /* BaseCoordinator.swift in Sources */,
 				30628FAD21B3FA8D00999084 /* UserListCoordinatorOutput.swift in Sources */,
@@ -766,6 +789,7 @@
 				30628F9D21B3DFD700999084 /* UserListViewController.swift in Sources */,
 				303E827021B2873300A8A7FA /* AppDelegate.swift in Sources */,
 				30628FB421B4256E00999084 /* UserDetailsViewController.swift in Sources */,
+				3030C1E422732A310025FC62 /* UITableView+Reuse.swift in Sources */,
 				302C6EFC21B2ADD300DB89A1 /* ApplicationCoordinator.swift in Sources */,
 				30628FB221B422E700999084 /* UserDetailsViewModel.swift in Sources */,
 				302C6EFE21B2AE3B00DB89A1 /* CoordinatorFactory.swift in Sources */,
