@@ -57,7 +57,16 @@ final class UserListViewController: UITableViewController, UserListView {
         cell.configure(with: (element.nickname, element))
       }
       .disposed(by: disposeBag)
+
+    tableView.rx
+      .modelSelected(UserViewModel.self)
+      .subscribe(onNext: { [unowned self] user in
+        self.onUserSelect?(user)
+      })
+      .disposed(by: disposeBag)
   }
+
+  // MARK: - Working with header view
 
   private func loadHeaderView() {
     viewModel
@@ -73,6 +82,16 @@ final class UserListViewController: UITableViewController, UserListView {
       .disposed(by: disposeBag)
     }
 
+  private func setupHeaderView(user: User) {
+    let headerView = UserListHeaderView()
+    headerView.configure(with: user)
+
+    tableView.beginUpdates()
+    tableView.tableHeaderView = headerView
+    tableView.tableHeaderView?.layoutIfNeeded()
+    tableView.endUpdates()
+  }
+
   private func setupNavigationButton() {
     let logoutButton = UIBarButtonItem(title: "Logout", style: .done, target: nil, action: nil)
     logoutButton.rx.tap
@@ -82,18 +101,5 @@ final class UserListViewController: UITableViewController, UserListView {
       .disposed(by: disposeBag)
 
     navigationItem.rightBarButtonItem = logoutButton
-  }
-}
-
-extension UserListViewController {
-
-  private func setupHeaderView(user: User) {
-    let headerView = UserListHeaderView()
-    headerView.configure(with: user)
-
-    tableView.beginUpdates()
-    tableView.tableHeaderView = headerView
-    tableView.tableHeaderView?.layoutIfNeeded()
-    tableView.endUpdates()
   }
 }
