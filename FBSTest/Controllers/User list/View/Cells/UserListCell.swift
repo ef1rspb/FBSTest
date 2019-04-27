@@ -12,7 +12,7 @@ import RxCocoa
 
 final class UserListCell: UITableViewCell {
 
-  typealias CellData = (title: String, userViewModel: UserViewModel)
+  typealias CellData = UserViewModel
 
   private var disposeBag = DisposeBag()
 
@@ -78,8 +78,8 @@ final class UserListCell: UITableViewCell {
   }
 
   func configure(with data: CellData) {
-    titleLabel.text = data.title
-    data.userViewModel
+    titleLabel.text = data.nickname
+    data
       .imageDriver
       .drive(onNext: { [weak self] in
         self?.avatarImageView.image = $0

@@ -53,8 +53,8 @@ final class UserListViewController: UITableViewController, UserListView {
         self.refreshControl?.endRefreshing()
       })
       .bind(to: tableView.rx.items(cellIdentifier: UserListCell.reuseIdentifier,
-                                   cellType: UserListCell.self)) { (_, element, cell) in
-        cell.configure(with: (element.nickname, element))
+                                   cellType: UserListCell.self)) { (_, userViewModel, cell) in
+        cell.configure(with: userViewModel)
       }
       .disposed(by: disposeBag)
 
