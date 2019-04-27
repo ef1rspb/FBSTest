@@ -12,23 +12,28 @@ import WebKit
 
 final class WebViewViewController: UIViewController, LoginView {
 
+    // MARK: - Callbacks
+
     var onLoginAction: ((LoginMethod) -> Void)?
     var onCompleteAuth: ((String) -> Void)?
+
+    // MARK: - Properties
 
     var viewModel: WebViewViewModel!
 
     private var webView: WKWebView!
     private let disposeBag = DisposeBag()
 
+    // MARK: - View lifecycle
+
     override func loadView() {
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
         webView.navigationDelegate = self
         view = webView
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
         if let request = viewModel.request {
             webView.load(request)
@@ -44,8 +49,8 @@ extension WebViewViewController: WKNavigationDelegate {
         guard let givenUrl = webView.url?.absoluteString else {
             return
         }
-        
-        if givenUrl.contains("code="), let code = givenUrl.components(separatedBy: "code=").last {
+
+        if let code = givenUrl.components(separatedBy: "code=").last {
             viewModel
                 .authenticateWithTemporaryCode(code)
                 .observeOn(MainScheduler.instance)
