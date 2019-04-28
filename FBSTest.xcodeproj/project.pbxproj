@@ -222,13 +222,6 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		302C6ED921B2991300DB89A1 /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Persistence;
-			sourceTree = "<group>";
-		};
 		302C6EDA21B2992500DB89A1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,13 +240,6 @@
 				3030C1E72273360C0025FC62 /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		302C6EDC21B2996200DB89A1 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		302C6EDD21B2A08D00DB89A1 /* Protocols */ = {
@@ -408,8 +394,6 @@
 				302C6EDB21B2994C00DB89A1 /* Extensions */,
 				302C6EDF21B2A0BC00DB89A1 /* Flows */,
 				302C6ED621B293C300DB89A1 /* Models */,
-				302C6EDC21B2996200DB89A1 /* Networking */,
-				302C6ED921B2991300DB89A1 /* Persistence */,
 				302C6EDE21B2A0A500DB89A1 /* Presenters */,
 				302C6EDD21B2A08D00DB89A1 /* Protocols */,
 				302C6EDA21B2992500DB89A1 /* Resources */,
