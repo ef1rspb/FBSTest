@@ -16,10 +16,12 @@ protocol UserService: class {
 final class FBSUserService: UserService {
 
   private let networkService: NetworkService
-  private var usersCache: [String: Data] = [:]
+  private let imageLoader: ImageLoader
+  private var userAvatarCacheByNickname: [String: Image] = [:]
 
-  init(networkService: NetworkService) {
+  init(networkService: NetworkService, imageLoader: ImageLoader) {
     self.networkService = networkService
+    self.imageLoader = imageLoader
   }
 
   func obtainUser() -> Observable<User?> {
@@ -29,11 +31,11 @@ final class FBSUserService: UserService {
 
 extension FBSUserService: UserListProvider {
 
-    func loadAvatarImage(_ user: User) -> Observable<Data> {
-        if let data = usersCache[user.nickname] {
+    func loadUserAvatar(_ user: User) -> Observable<Image> {
+        if let data = userAvatarCacheByNickname[user.nickname] {
             return .just(data)
         } else {
-            return .just(Data())//networkService.loadImage(url: user.avatarUrl)
+            return imageLoader.loadImage(user.avatarUrl)
         }
     }
 
@@ -42,6 +44,6 @@ extension FBSUserService: UserListProvider {
     }
 
     func updateUser(_ user: UserViewModel) {
-        usersCache[user.nickname] = user.imageData
+        userAvatarCacheByNickname[user.nickname] = user.avatar
     }
 }

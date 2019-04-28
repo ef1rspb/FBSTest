@@ -6,7 +6,7 @@
 //  Copyright © 2018 Aleksandr Malina. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 final class UserDetailsViewModel {
     let userViewModel: UserViewModel
@@ -15,11 +15,8 @@ final class UserDetailsViewModel {
         self.userViewModel = userViewModel
     }
 
-    func updateUser(avatarImageData: Data?) {
-        guard let data = avatarImageData else {
-            return
-        }
-        userViewModel.updateImage(data: data)
+    func updateUserAvatar(_ image: Image) {
+        userViewModel.updateAvatar(image)
     }
 
 }

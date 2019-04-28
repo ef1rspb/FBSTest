@@ -52,3 +52,20 @@ final class NetworkServiceImpl: NetworkService {
     return request
   }
 }
+
+protocol ImageLoader: class {
+
+  func loadImage(_ url: String) -> Observable<Image>
+}
+
+extension NetworkServiceImpl: ImageLoader {
+
+  func loadImage(_ url: String) -> Observable<Image> {
+    let url = URL(string: url)!
+    let request = URLRequest(url: url)
+    return URLSession.shared.rx
+      .data(request: request)
+      .map { Image(data: $0) }
+      .flatMap { Observable.from(optional: $0) }
+  }
+}

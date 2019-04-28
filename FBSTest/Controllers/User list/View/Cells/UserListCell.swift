@@ -80,8 +80,9 @@ final class UserListCell: UITableViewCell {
   func configure(with data: CellData) {
     titleLabel.text = data.nickname
     data
-      .imageDriver
-      .drive(onNext: { [weak self] in
+      .avatarObservable
+      .observeOn(MainScheduler.instance)
+      .subscribe(onNext: { [weak self] in
         self?.avatarImageView.image = $0
       })
       .disposed(by: disposeBag)

@@ -11,6 +11,6 @@ import RxSwift
 
 protocol UserListProvider: class {
     func getUsers() -> Observable<[User]>
-    func loadAvatarImage(_ user: User) -> Observable<Data>
+    func loadUserAvatar(_ user: User) -> Observable<Image>
     func updateUser(_ user: UserViewModel)
 }

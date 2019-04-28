@@ -47,7 +47,6 @@ final class UserListViewController: UITableViewController, UserListView {
         tableView.refreshControl!.rx.controlEvent(.valueChanged).asObservable()
       )
       .flatMap { [unowned self] in self.viewModel.githubUsers }
-      .map { $0.map { UserViewModel(user: $0) } }
       .observeOn(MainScheduler.instance)
       .do(onNext: { [unowned self] _ in
         self.refreshControl?.endRefreshing()

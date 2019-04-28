@@ -10,14 +10,21 @@ import RxSwift
 
 protocol UserListViewModel: class {
 
-  var githubUsers: Observable<[User]> { get }
+  var githubUsers: Observable<[UserViewModel]> { get }
   var user: Observable<User?> { get }
 }
 
 final class UserListViewModelImpl: UserListViewModel {
 
-  var githubUsers: Observable<[User]> {
-    return userListProvider.getUsers()
+  var githubUsers: Observable<[UserViewModel]> {
+    return userListProvider.getUsers().map { [unowned self] in
+      $0.map { [unowned self] user in
+        UserViewModel(
+          user: user,
+          image: self.userListProvider.loadUserAvatar(user)
+        )
+      }
+    }
   }
 
   var user: Observable<User?> {

@@ -6,43 +6,44 @@
 //  Copyright © 2018 Aleksandr Malina. All rights reserved.
 //
 
-import Foundation
 import UIKit.UIImage
 import RxSwift
 import RxCocoa
 
+typealias Image = UIImage
+
 final class UserViewModel {
-    let user: User
 
-    private let imageSubject = BehaviorRelay<Data?>(value: nil)
-    private let disposeBag = DisposeBag()
+  let user: User
 
-    init(user: User) { //, imageObservable: Observable<Data>
-        self.user = user
-//        imageObservable
-//            .bind(to: imageSubject)
-//            .disposed(by: disposeBag)
-    }
+  private let avatarSubject = BehaviorSubject<Image>(value: Image.User.avatarPlaceholder)
+  private let disposeBag = DisposeBag()
 
-    func updateImage(data: Data) {
-        imageSubject.accept(data)
-    }
+  init(user: User, image: Observable<Image>) {
+    self.user = user
+    image
+      .subscribe(onNext: { [weak self] in
+        self?.avatarSubject.onNext($0)
+      })
+      .disposed(by: disposeBag)
+  }
+
+  func updateAvatar(_ image: Image) {
+    avatarSubject.onNext(image)
+  }
 }
 
 extension UserViewModel {
 
-    var imageDriver: Driver<UIImage> {
-        return imageSubject
-            .asObservable()
-            .map { UIImage(data: $0 ?? Data()) ?? UIImage.User.avatarPlaceholder }
-            .asDriver(onErrorJustReturn: UIImage.User.avatarPlaceholder)
-    }
+  var avatarObservable: Observable<Image> {
+    return avatarSubject.asObservable()
+  }
 
-    var nickname: String {
-        return user.nickname
-    }
+  var nickname: String {
+    return user.nickname
+  }
 
-    var imageData: Data? {
-        return imageSubject.value
-    }
+  var avatar: Image {
+    return (try? avatarSubject.value()) ?? Image.User.avatarPlaceholder
+  }
 }

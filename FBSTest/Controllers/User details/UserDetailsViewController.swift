@@ -42,13 +42,6 @@ final class UserDetailsViewController: UIViewController, UserDetailsView {
     super.viewDidLoad()
 
     setupView()
-
-    viewModel.userViewModel
-      .imageDriver
-      .drive(onNext: { [unowned self] in
-        self.avatarImageView.image = $0
-      })
-      .disposed(by: disposeBag)
   }
 
   // MARK: - Setup view
@@ -70,6 +63,14 @@ final class UserDetailsViewController: UIViewController, UserDetailsView {
       avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor)
     ])
+
+    viewModel.userViewModel
+      .avatarObservable
+      .observeOn(MainScheduler.instance)
+      .subscribe(onNext: { [weak self] in
+        self?.avatarImageView.image = $0
+      })
+      .disposed(by: disposeBag)
   }
 
   private func setupUpdateImageButton() {
@@ -94,8 +95,7 @@ extension UserDetailsViewController: UIImagePickerControllerDelegate, UINavigati
                              didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
     picker.dismiss(animated: true, completion: nil)
     if let image = info[UIImagePickerController.InfoKey.originalImage]! as? UIImage {
-      avatarImageView.image = image
-      viewModel.updateUser(avatarImageData: image.pngData())
+      viewModel.updateUserAvatar(image)
       onUserUpdated?(viewModel.userViewModel)
     }
   }
