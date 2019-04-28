@@ -11,29 +11,29 @@ import KeychainAccess
 
 final class KeychainService {
 
-    static let shared = KeychainService()
+  static let shared = KeychainService()
 
-    private init() { }
+  private init() { }
 
-    private enum Constants {
-        static let keychainService = "ru.malina.fbstest"
-        static let authTokenKey = "authToken"
+  private enum Constants {
+    static let keychainService = "ru.malina.fbstest"
+    static let authTokenKey = "authToken"
+  }
+
+  fileprivate lazy var keychain: Keychain = {
+    Keychain(service: Constants.keychainService)
+  }()
+
+  var authToken: String? {
+    get {
+      return keychain[Constants.authTokenKey]
     }
-
-    fileprivate lazy var keychain: Keychain = {
-        Keychain(service: Constants.keychainService)
-    }()
-
-    var authToken: String? {
-        get {
-            return keychain[Constants.authTokenKey]
-        }
-        set {
-            keychain[Constants.authTokenKey] = newValue
-        }
+    set {
+      keychain[Constants.authTokenKey] = newValue
     }
+  }
 
-    func clear() {
-        try? keychain.removeAll()
-    }
+  func clear() {
+    try? keychain.removeAll()
+  }
 }

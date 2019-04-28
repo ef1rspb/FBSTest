@@ -6,8 +6,6 @@
 //  Copyright © 2018 Aleksandr Malina. All rights reserved.
 //
 
-import Foundation
-
 protocol UserListCoordinatorOutput: class {
-    var finishFlow: (() -> Void)? { get set }
+  var finishFlow: (() -> Void)? { get set }
 }

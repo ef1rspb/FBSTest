@@ -1,3 +1,3 @@
 protocol AuthCoordinatorOutput: class {
-    var finishFlow: ((String) -> Void)? { get set }
+  var finishFlow: ((String) -> Void)? { get set }
 }

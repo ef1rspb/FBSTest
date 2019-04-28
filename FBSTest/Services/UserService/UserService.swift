@@ -31,19 +31,19 @@ final class FBSUserService: UserService {
 
 extension FBSUserService: UserListProvider {
 
-    func loadUserAvatar(_ user: User) -> Observable<Image> {
-        if let data = userAvatarCacheByNickname[user.nickname] {
-            return .just(data)
-        } else {
-            return imageLoader.loadImage(user.avatarUrl)
-        }
+  func loadUserAvatar(_ user: User) -> Observable<Image> {
+    if let data = userAvatarCacheByNickname[user.nickname] {
+      return .just(data)
+    } else {
+      return imageLoader.loadImage(user.avatarUrl)
     }
+  }
 
-    func getUsers() -> Observable<[User]> {
-      return networkService.makeRequest(to: GithubUserTarget.userList)
-    }
+  func getUsers() -> Observable<[User]> {
+    return networkService.makeRequest(to: GithubUserTarget.userList)
+  }
 
-    func updateUser(_ user: UserViewModel) {
-        userAvatarCacheByNickname[user.nickname] = user.avatar
-    }
+  func updateUser(_ user: UserViewModel) {
+    userAvatarCacheByNickname[user.nickname] = user.avatar
+  }
 }

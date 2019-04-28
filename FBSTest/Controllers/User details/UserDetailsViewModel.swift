@@ -6,24 +6,22 @@
 //  Copyright © 2018 Aleksandr Malina. All rights reserved.
 //
 
-import RxSwift
-
 final class UserDetailsViewModel {
-    let userViewModel: UserViewModel
 
-    init(userViewModel: UserViewModel) {
-        self.userViewModel = userViewModel
-    }
+  let userViewModel: UserViewModel
 
-    func updateUserAvatar(_ image: Image) {
-        userViewModel.updateAvatar(image)
-    }
+  init(userViewModel: UserViewModel) {
+    self.userViewModel = userViewModel
+  }
 
+  func updateUserAvatar(_ image: Image) {
+    userViewModel.updateAvatar(image)
+  }
 }
 
 extension UserDetailsViewModel {
 
-    var header: String {
-        return userViewModel.user.nickname
-    }
+  var header: String {
+    return userViewModel.user.nickname
+  }
 }
