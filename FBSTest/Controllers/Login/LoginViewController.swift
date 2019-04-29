@@ -10,40 +10,61 @@ import UIKit
 import RxSwift
 
 final class LoginViewController: UIViewController, LoginView {
-    var onLoginAction: ((LoginMethod) -> Void)?
-    var onCompleteAuth: ((String) -> Void)?
 
-    private let disposeBag = DisposeBag()
-    var viewModel: LoginViewModel!
+  // MARK: - Callbacks
+  var onLoginAction: ((LoginMethod) -> Void)?
+  var onCompleteAuth: ((String) -> Void)?
 
-    private(set) lazy var loginButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle("Login", for: .normal)
-        button.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.onLoginAction?(.github)
-            })
-            .disposed(by: disposeBag)
-        return button
-    }()
+  // MARK: - Properties
+  private let disposeBag = DisposeBag()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addViews()
-    }
+  private let loginButton: UIButton = {
+    let button = UIButton()
+    button.setTitle("Login", for: .normal)
+    return button
+  }()
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+  private enum ViewConstants {
 
-        navigationController?.isNavigationBarHidden = true
-    }
+    static let loginButtonWidth: CGFloat = 100
+    static let loginButtonHeight: CGFloat = 50
+  }
 
-    private func addViews() {
-        view.addSubview(loginButton)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    }
+  // MARK: - View lifecycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    addViews()
+    bind()
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    navigationController?.isNavigationBarHidden = true
+  }
+
+  // MARK: - Setup view
+  private func addViews() {
+    addLoginButton()
+  }
+
+  private func addLoginButton() {
+    view.addSubview(loginButton)
+    loginButton.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      loginButton.widthAnchor.constraint(equalToConstant: ViewConstants.loginButtonWidth),
+      loginButton.heightAnchor.constraint(equalToConstant: ViewConstants.loginButtonHeight),
+      loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+    ])
+  }
+
+  private func bind() {
+    loginButton.rx.tap
+      .subscribe(onNext: { [weak self] in
+        self?.onLoginAction?(.github)
+      })
+      .disposed(by: disposeBag)
+  }
 }

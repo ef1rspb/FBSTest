@@ -7,5 +7,6 @@
 //
 
 enum LoginMethod {
-    case github
+
+  case github
 }

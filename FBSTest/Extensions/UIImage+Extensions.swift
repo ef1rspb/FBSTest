@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImage {
 
-    enum User {
-        static let avatarPlaceholder = UIImage(named: "user-avatar-placeholder")!
-    }
+  enum User {
+    static let avatarPlaceholder = UIImage(named: "user-avatar-placeholder")!
+  }
 }

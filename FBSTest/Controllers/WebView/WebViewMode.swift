@@ -7,22 +7,23 @@
 //
 
 enum WebViewMode {
-    case githubAuth
+
+  case githubAuth
 }
 
 extension WebViewMode {
 
-    var title: String {
-        switch self {
-        case .githubAuth:
-            return "GitHub Authentication"
-        }
+  var title: String {
+    switch self {
+    case .githubAuth:
+      return "GitHub Authentication"
     }
+  }
 
-    var url: String {
-        switch self {
-        case .githubAuth:
-            return "https://github.com/login/oauth/authorize"
-        }
+  var url: String {
+    switch self {
+    case .githubAuth:
+      return "https://github.com/login/oauth/authorize"
     }
+  }
 }
